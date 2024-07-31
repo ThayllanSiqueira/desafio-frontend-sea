@@ -1,0 +1,72 @@
+{
+  "login": {
+    "login_super_user": "Logado como super usuário",
+    "login_required": "Login required",
+    "token_invalid": "Token inválido",
+    "login_user_error": "Houve um erro com seu usuário de login",
+    "login_password_invalid": "Login ou senha Inválida",
+    "password_expired": "Senha expirada, necessário trocar senha",
+    "user_blocked": "Número de tentativas de login foram alcançadas, seu usuário foi bloqueado",
+    "token_required": "Token authorization required",
+    "token_code_invalid": "Token ou code Inválido"
+  },
+  "user": {
+    "created_user": "Usuário criado com sucesso",
+    "user_name_min_characters": "O nome do usuário precisa conter mais que {{userConfig.userNameMinimal}} caracteres",
+    "user_invalid": "Usuário inválido",
+    "user_not_privilege": "Não possui previlégios para executar esta ação",
+    "password_lasts": "Senha precisa ser diferente das ultimas 15 senhas",
+    "password_lenght_min": "Senha precisa conter mais que {{userConfig.passwordMinLength}} caracteres",
+    "password_lenght_max": "Senha precisa ser menor que {{userConfig.passwordMaxLength}} caracteres",
+    "password_contains_number": "Senha precisa conter número",
+    "password_contains_lowercase": "Senha precisa conter letra minúscula",
+    "password_contains_uppercase": "Senha precisa conter letra maiúscula",
+    "password_contains_symbol": "Senha precisa conter carateres especiais",
+    "user_exists": "Funcionário já existe no sistema",
+    "user_not_found": "Usuário não encontrado",
+    "user_update_error": "Erro ao alterar dados de usuário",
+    "user_update_success": "Dados alterado com sucesso",
+    "user_status_success": "Status alterado com sucesso",
+    "password_invalid": "Senha Inválida",
+    "password_changed": "Senha alterada com sucesso",
+    "email_invalid": "Email não é válido",
+    "email_password_send": "Senha temporário foi enviada para o email",
+    "user_perfil_linked": "Perfis já vinculado com user",
+    "user_perfil_not_found": "Nada encontrado para o Usuário e Perfil informado",
+    "user_perfil_removed": "Perfis removidos do Usuário",
+    "user_area_not_found": "Usuario ou Area não existe",
+    "user_area_linked": "Usuario vinculado a area",
+    "user_area_exists": "Usuario já está vinculado a area"
+  },
+  "email": {
+    "password_temp_subject": "Senha temporária para login",
+    "password_temp_text": "Realize seu primeiro acesso com a senha: {{password}} após o primeiro acesso você deverá trocar sua senha por uma senha permanente.",
+    "recover_password_subject": "Senha de recuperação",
+    "recover_password_text": "A senha de recuperação é a: {{password}} você necessitará dela para trocar a senha.",
+    "2factor_subject": "Login de dois fatores",
+    "2factor_text": "Seu código de autenticação: {{code}}"
+  },
+  "area": {
+    "area_exists": "Área já existe",
+    "area_find_failure": "Falha ao buscar área",
+    "area_user_not_linked": "Usuário não existe ou não possuí uma areá vinculada",
+    "area_not_found": "Areá não encontrada"
+  },
+  "confituraion": {
+    "configuration_exists": "Configuration já existe no sistema",
+    "configuration_not_found": "Configuration não encontrada",
+    "configuration_remove_success": "Configuration removida com sucesso",
+    "configuration_update_success": "Update foi um sucesso",
+    "configuration_key_not_found": "Chave de configuração não encontrada"
+  },
+  "error": {
+    "server_error": "O servidor encontrou uma condição inesperada que o impediu de atender completamente a requisição"
+  },
+  "perfil": {
+    "perfil_exists": "Perfil já existe no sistema",
+    "permission_exists": "Permissão já existe no sistema",
+    "perfil_permission_exists": "Permissão já vinculada com perfil",
+    "perfil_permission_not_found": "Nada encontrado para o Perfil e Permissão informado",
+    "perfil_permission_removed": "Permissões removidas do Perfil"
+  }
+}

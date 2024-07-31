@@ -1,0 +1,8 @@
+/node_modules
+/build
+/build-tsc
+/dist
+/logs
+package-lock.json
+.env
+reg.lic

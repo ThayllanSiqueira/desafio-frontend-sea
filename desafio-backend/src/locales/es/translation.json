@@ -1,0 +1,72 @@
+{
+  "login": {
+    "login_super_user": "Inicie sesión como superusuario",
+    "login_required": "Necesario iniciar sesión",
+    "token_invalid": "Token no valido",
+    "login_user_error": "Hubo un error con su usuario de inicio de sesión",
+    "login_password_invalid": "Clave o usuario inválido",
+    "password_expired": "Contraseña caducada, necesita cambiar la contraseña",
+    "user_blocked": "Se alcanzó el número de intentos de inicio de sesión, su usuario ha sido bloqueado",
+    "token_required": "Se requiere autorización de token",
+    "token_code_invalid": "Token o código no válido"
+  },
+  "user": {
+    "created_user": "Usuario creado con éxito",
+    "user_name_min_characters": "El nombre de usuario debe contener más de {{userConfig.userNameMinimal}} caracteres",
+    "user_invalid": "usuario invalido",
+    "user_not_privilege": "No tienes privilegios para realizar esta acción",
+    "password_lasts": "La contraseña debe ser diferente de las últimas 15 contraseñas",
+    "password_lenght_min": "La contraseña debe contener más de {{userConfig.passwordMinLength}} caracteres",
+    "password_lenght_max": "La contraseña debe ser menor que {{userConfig.passwordMaxLength}} caracteres",
+    "password_contains_number": "La contraseña debe contener un número",
+    "password_contains_lowercase": "La contraseña debe contener minúsculas",
+    "password_contains_uppercase": "La contraseña debe contener letra mayúscula",
+    "password_contains_symbol": "La contraseña debe contener caracteres especiales",
+    "user_exists": "El usuario ya existe en el sistema",
+    "user_not_found": "Usuario no encontrado",
+    "user_update_error": "Error al cambiar datos de usuario",
+    "user_update_success": "Los datos cambiaron con éxito",
+    "user_status_success": "El estado cambió con éxito",
+    "password_invalid": "Contraseña invalida",
+    "password_changed": "Contraseña alterada con éxito",
+    "email_invalid": "El correo no es válido",
+    "email_password_send": "La contraseña temporal ha sido enviada al correo electrónico.",
+    "user_perfil_linked": "Perfiles ya vinculados con el usuario",
+    "user_perfil_not_found": "No se encontró nada para el Usuario y Perfil informado",
+    "user_perfil_removed": "Perfiles de usuario eliminados",
+    "user_area_not_found": "Nombre de usuario o Área no existe",
+    "user_area_linked": "Usuario vinculado al área",
+    "user_area_exists": "El usuario ya está vinculado al área"
+  },
+  "email": {
+    "password_temp_subject": "Contraseña de inicio de sesión temporal",
+    "password_temp_text": "Realice su primer inicio de sesión con la contraseña: {{password}} después del primer acceso tendrás que cambiar tu contraseña por una contraseña permanente.",
+    "recover_password_subject": "Contraseña de recuperación",
+    "recover_password_text": "La contraseña de recuperación es: {{password}} lo necesitará para cambiar la contraseña.",
+    "2factor_subject": "Inicio de sesión de dos factores",
+    "2factor_text": "Su código de autenticación: {{code}}"
+  },
+  "area": {
+    "area_exists": "El área ya existe",
+    "area_find_failure": "No se pudo recuperar el área",
+    "area_user_not_linked": "El usuario no existe o no tiene un área enlazada",
+    "area_not_found": "Área no encontrada"
+  },
+  "confituraion": {
+    "configuration_exists": "La configuración ya existe en el sistema",
+    "configuration_not_found": "Configuración no encontrada",
+    "configuration_remove_success": "Configuración eliminada con éxito",
+    "configuration_update_success": "La actualización fue un éxito",
+    "configuration_key_not_found": "Clave de configuración no encontrada"
+  },
+  "error": {
+    "server_error": "El servidor encontró una condición inesperada que le impidió cumplir completamente con la solicitud."
+  },
+  "perfil": {
+    "perfil_exists": "El perfil ya existe en el sistema",
+    "permission_exists": "El permiso ya existe en el sistema",
+    "perfil_permission_exists": "Permiso ya vinculado con el perfil",
+    "perfil_permission_not_found": "No se encontró nada para el perfil y el permiso ingresados",
+    "perfil_permission_removed": "Permisos eliminados del perfil"
+  }
+}

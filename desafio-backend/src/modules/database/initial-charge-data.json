@@ -1,0 +1,155 @@
+{
+  "roles": [
+    {
+      "name": "Administrador",
+      "description": "Administrador do Sistema"
+    },
+    {
+      "name": "Gerente",
+      "description": "Gerente do Sistema"
+    },
+    {
+      "name": "Comum",
+      "description": "Comum para todos do Sistema"
+    }
+  ],
+  "permissions": [
+    {
+      "name": "roleAdministrating",
+      "description": "Gerenciar perfis de usuário no sistema"
+    },
+    {
+      "name": "roleViewing",
+      "description": "Visualizar perfis de usuario no sistema"
+    },
+    {
+      "name": "userAdministrating",
+      "description": "Gerenciar usuários no sistema"
+    },
+    {
+      "name": "userMeAdministrating",
+      "description": "Gerenciar os próprios dados de usuário"
+    },
+    {
+      "name": "userViewing",
+      "description": "Visualizar usuarios no sistema"
+    },
+    {
+      "name": "settingsAdministrating",
+      "description": "Gerenciar usuários no sistema"
+    },
+    {
+      "name": "settingsViewing",
+      "description": "Visualizar usuarios no sistema"
+    },
+    {
+      "name": "areaAdministrating",
+      "description": "Gerenciar área no sistema"
+    },
+    {
+      "name": "areaViewing",
+      "description": "Visualizar área no sistema"
+    },
+    {
+      "name": "alertAdministrating",
+      "description": "Gerenciar alert no sistema"
+    },
+    {
+      "name": "alertViewing",
+      "description": "Visualizar alert no sistema"
+    }
+  ],
+  "configs": [
+    {
+      "key": "userNameMinimal",
+      "value": 6,
+      "description": "Mínimo de caracteres para o nome do usuário",
+      "type": "number",
+      "session": "users"
+    },
+    {
+      "key": "passwordExpirationTime",
+      "value": 6,
+      "description": "Número em dias que a senha do usuário irá expirar",
+      "type": "number",
+      "session": "users"
+    },
+    {
+      "key": "login2Factor",
+      "value": true,
+      "description": "Para ativar a verificação de 2 fatores no sistema",
+      "type": "boolean",
+      "session": "login"
+    },
+    {
+      "key": "loginAttempt",
+      "value": 3,
+      "description": "Quantidade de vezes que o user pode tentar logar, antes de ser bloqueado",
+      "type": "number",
+      "session": "login"
+    },
+    {
+      "key": "passwordMinLength",
+      "value": 6,
+      "description": "Quantidade mínima de caracteres para a senha do usuário",
+      "type": "number",
+      "session": "users"
+    },
+    {
+      "key": "passwordMaxLength",
+      "value": 10,
+      "description": "Quantidade máxima de caracteres para a senha do usuário",
+      "type": "number",
+      "session": "users"
+    },
+    {
+      "key": "passwordContainsSpecialSymbol",
+      "value": true,
+      "description": "Se é necessário que a senha contenha caracteres especiais",
+      "type": "boolean",
+      "session": "users"
+    },
+    {
+      "key": "passwordContainsUppercase",
+      "value": true,
+      "description": "Se é necessário que a senha contenha letras maiúsculas",
+      "type": "boolean",
+      "session": "users"
+    },
+    {
+      "key": "passwordContainsLowercase",
+      "value": true,
+      "description": "Se é necessário que a senha contenha letras minúscula",
+      "type": "boolean",
+      "session": "users"
+    },
+    {
+      "key": "passwordContainsNumber",
+      "value": true,
+      "description": "Se é necessário que a senha contenha números",
+      "type": "boolean",
+      "session": "users"
+    },
+    {
+      "key": "timeTokenExpires",
+      "value": 3,
+      "description": "Tempo em horas para que o token expire",
+      "type": "number",
+      "session": "login"
+    },
+    {
+      "key": "timeSessionExpires",
+      "value": 120,
+      "description": "Tempo em minutos para que a sessão do usuário expira",
+      "type": "number",
+      "session": "login"
+    },
+    {
+      "key": "isSessionExpires",
+      "value": true,
+      "description": "Se a sessão do usuário deve expirar",
+      "type": "boolean",
+      "session": "login"
+    }
+  ]
+}

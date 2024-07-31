@@ -1,0 +1,72 @@
+{
+  "login": {
+    "login_super_user": "Logged as super user",
+    "login_required": "Login required",
+    "token_invalid": "Invalid Token",
+    "login_user_error": "There was an error with your login user",
+    "login_password_invalid": "Invalid Login or Password",
+    "password_expired": "Password expired, change your password",
+    "user_blocked": "Number of login attempts have been reached, your user has been blocked",
+    "token_required": "Token authorization required",
+    "token_code_invalid": "Invalid Token or code"
+  },
+  "user": {
+    "created_user": "User has been created with success",
+    "user_name_min_characters": "The username need to contain more than {{userConfig.userNameMinimal}} characters",
+    "user_invalid": "Invalid user",
+    "user_not_privilege": "Do not have privileges to perform this action",
+    "password_lasts": "Password must be different from the last 15 passwords",
+    "password_lenght_min": "Password must contain more than {{userConfig.passwordMinLength}} characters",
+    "password_lenght_max": "Password must be less than {{userConfig.passwordMaxLength}} characters",
+    "password_contains_number": "Password must contain number",
+    "password_contains_lowercase": "Password must contain lower case",
+    "password_contains_uppercase": "Password must contain uppercase",
+    "password_contains_symbol": "Password must contain especial characters",
+    "user_exists": "User already exists",
+    "user_not_found": "User not found",
+    "user_update_error": "Error when changing user data",
+    "user_update_success": "Data changed successfully",
+    "user_status_success": "Status changed successfully",
+    "password_invalid": "Invalid password",
+    "password_changed": "Password changed successfully",
+    "email_invalid": "Invalid Email",
+    "email_password_send": "Temporary password has been sent to email",
+    "user_perfil_linked": "Profiles already linked with user",
+    "user_perfil_not_found": "No data found for the informed User and Profile",
+    "user_perfil_removed": "Profiles removed from User",
+    "user_area_not_found": "User or Area does not exist",
+    "user_area_linked": "User linked to the area",
+    "user_area_exists": "User is already linked to the area"
+  },
+  "email": {
+    "password_temp_subject": "Temporary login password",
+    "password_temp_text": "Make your first login with the password: {{password}} after the first access you must change your password for a permanent password.",
+    "recover_password_subject": "Recovery password",
+    "recover_password_text": "The Recovery password is: {{password}} you will need it to change the password.",
+    "2factor_subject": "Two-factor login",
+    "2factor_text": "Your authentication code is: {{code}}"
+  },
+  "area": {
+    "area_exists": "Area already exists",
+    "area_find_failure": "Failed to fetch area",
+    "area_user_not_linked": "User does not exist or does not have a linked area.",
+    "area_not_found": "Area not found"
+  },
+  "confituraion": {
+    "configuration_exists": "Configuration already exists",
+    "configuration_not_found": "Configuration not found",
+    "configuration_remove_success": "Removed configuration successfully",
+    "configuration_update_success": "Update was a success",
+    "configuration_key_not_found": "Configuration key not found"
+  },
+  "error": {
+    "server_error": "The server found an unexpected condition that prevented it from fully fulfilling the request."
+  },
+  "perfil": {
+    "perfil_exists": "Profile already exists",
+    "permission_exists": "Permission already exists in the system",
+    "perfil_permission_exists": "Permission already linked with the profile",
+    "perfil_permission_not_found": "Permission not found for the Profile and Permission informed",
+    "perfil_permission_removed": "Permission removed from the profile"
+  }
+}
