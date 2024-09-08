@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-import {
-  Select as AntdSelect,
-  Upload as AntdUpload,
-  DatePicker as AntdDatePicker
-} from 'antd';
+import { Select, DatePicker } from '../../../../../../../../../../components/Forms/Forms.styles';
 
 export const RadioGroup = styled.div`
   display: flex;
@@ -24,7 +20,7 @@ export const RadioGroup = styled.div`
   }
 `;
 
-export const StyledDatePicker = styled(AntdDatePicker)`
+export const StyledDatePicker = styled(DatePicker)`
   .ant-input {
     border-color: #649FBF !important;
   }
@@ -38,7 +34,7 @@ export const StyledDatePicker = styled(AntdDatePicker)`
   }
 `;
 
-export const StyledSelect = styled(AntdSelect)`
+export const StyledSelect = styled(Select)`
   .ant-select-selector {
     border-color: #649FBF !important;
   }

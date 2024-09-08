@@ -1,12 +1,11 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import Icon from '@ant-design/icons';
-import { theme } from 'antd';
+import { Icon } from '../../../../components/Icons/Icons.styles';
 
 import ComingSoon from '../../../../components/ComingSoon';
 import StepOneContent from './components/StepOneContent';
-import SVGStepsActived from './components/SVGStepsActived';
-import SVGStepsEnabled from './components/SVGStepsEnabled';
-import SVGStepsDisabled from './components/SVGStepsDisabled';
+import SVGStepsActived from '../../../../components/SVGs/SVGStepsActived';
+import SVGStepsEnabled from '../../../../components/SVGs/SVGStepsEnabled';
+import SVGStepsDisabled from '../../../../components/SVGs/SVGStepsDisabled';
 
 import { useEditContext } from '../../hooks/useEditEmployeeContext';
 

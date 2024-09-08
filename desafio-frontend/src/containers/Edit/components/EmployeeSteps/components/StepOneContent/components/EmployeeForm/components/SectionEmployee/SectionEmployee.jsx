@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
-import {
-  Form,
-  Radio,
-  Row,
-  Col,
-  } from 'antd';
 
 import Icon, { CloseOutlined, MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { useFormikContext, ErrorMessage  } from 'formik';
 
-import { FormItem, ErrorText } from '../../../../../../../../../../components/Forms/Forms.styles';
-import { Section } from '../../../../../../../../../../components/Containers/Divs.styles';
+import { FormItem, ErrorText, Radio } from '../../../../../../../../../../components/Forms/Forms.styles';
+import { Section, Row, Col } from '../../../../../../../../../../components/Containers/Divs.styles';
 import {
   RadioGroup,
   StyledSelect,

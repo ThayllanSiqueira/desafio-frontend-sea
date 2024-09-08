@@ -1,8 +1,5 @@
 import {useState, useEffect} from 'react';
 import moment from 'moment';
-import {
-  Form,
- } from 'antd';
  import * as Yup from 'yup';
 
 import { useEditContext } from '../../../../../../hooks/useEditEmployeeContext';
@@ -24,7 +21,6 @@ import { roles } from '../../../../../../../../utils/constants/mockComponents';
 import { createGlobalStyle } from 'styled-components';
 
 export const useEmployeeForm = () => {
-  const [loading, setLoading] = useState(false);
   const { editData } = useEditContext();
   const { setNotification } = useAppGlobalContext();
   const { employeeId, employee, setEmployee, setEmployeeId } = useEmployeeReducer();
@@ -204,7 +200,6 @@ const validationSchema = Yup.object().shape({
 });
 
   return {
-    loading,
     handleBackStatesOnPage,
     validationSchema,
     onFinish,

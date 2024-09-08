@@ -1,15 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
 
-import {
- Flex,
- List,
- Switch,
-} from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
-
-import { CustomButton, FullHeightButton } from '../../../../../../../../components/Forms/Forms.styles';
+import { CustomButton, FullHeightButton, Switch } from '../../../../../../../../components/Forms/Forms.styles';
 import { EmployeeCard } from '../../../../../../../../components/Containers/Cards.styles';
+import { Flex, List } from '../../../../../../../../components/Containers/Divs.styles';
 import { Text, StyledTitle } from '../../../../../../../../components/Typography/Typography.styles';
+import { EllipsisOutlined } from '../../../../../../../../components/Icons/Icons.styles';
 import {
  FilterButtons,
  FilterContainer,

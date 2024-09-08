@@ -1,20 +1,17 @@
 import { useState, useContext, useEffect, useMemo } from 'react';
-import { Layout } from 'antd';
 
 import EmployeeSteps from './components/EmployeeSteps';
 import StepOneContent from './components/EmployeeSteps/components/StepOneContent';
 import ComingSoon from '../../components/ComingSoon';
-
 import { useEditContext } from './hooks/useEditEmployeeContext';
 
 import { CustomButton } from '../../components/Forms/Forms.styles';
+import { Content, Layout } from '../../components/Containers/Layout.styles';
 import {
  StepsHeader,
  ButtonContainer,
  ContentWrapper,
 } from './edit.styles';
-
-const { Content } = Layout;
 
 const Edit = () => {
  const { editData, setEditData } = useEditContext();

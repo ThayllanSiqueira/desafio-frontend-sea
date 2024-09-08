@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react';
-import {
- Form,
- Select,
- Checkbox,
- List,
-} from 'antd';
 import { useFormikContext, FieldArray, ErrorMessage } from 'formik';
 
 import { FormItem, ErrorText, CustomButton, StyledSelect, StyledUpload } from '../../../../../../../../../../components/Forms/Forms.styles';
 import StyledInput  from '../../../../../../../../../../components/Forms/Inputs/Input';
+import { Select, Checkbox }  from '../../../../../../../../../../components/Forms/Forms.styles';
 import { Title } from '../../../../../../../../../../components/Typography/Typography.styles';
-import { Section } from '../../../../../../../../../../components/Containers/Divs.styles';
+import { Section, List } from '../../../../../../../../../../components/Containers/Divs.styles';
 import { FileIcon } from '../../../../../../../../../../components/Icons';
 import {
   InlineElements,

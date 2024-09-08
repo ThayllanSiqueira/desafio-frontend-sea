@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 
 import { GlobalStyle, PageContainer, AppWrapper, MainContainer, ContentContainer } from './main.styles';
 
-import SVGPlus from './components/SVGPlus';
+import SVGPlus from './components/SVGs/SVGPlus';
 import Menu from './components/Menu';
 import Home from "./containers/Home";
 import Edit from './containers/Edit';

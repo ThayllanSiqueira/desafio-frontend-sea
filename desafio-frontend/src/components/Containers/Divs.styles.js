@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Flex, List, Tag, Row, Col  } from 'antd';
 
 export const Section = styled.div`
   margin-bottom: 20px;
@@ -10,3 +11,5 @@ export const Section = styled.div`
     padding: 15px;
   }
 `;
+
+export { Flex, List, Tag, Row, Col  }

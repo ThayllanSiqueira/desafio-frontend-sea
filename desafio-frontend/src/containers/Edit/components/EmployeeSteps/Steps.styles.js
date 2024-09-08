@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Steps as AntdSteps } from 'antd';
+import { Steps } from '../../../../components/Containers/Layout.styles';
 
-export const StyledSteps = styled(AntdSteps)`
+export const StyledSteps = styled(Steps)`
   .ant-steps {
     text-align: initial;
   }

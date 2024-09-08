@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Menu, Dropdown, Tag } from 'antd';
+import { Menu } from '../../../../../../../../components/Containers/Layout.styles';
+import { Tag } from '../../../../../../../../components/Containers/Divs.styles';
+import { Dropdown } from '../../../../../../../../components/Forms/Forms.styles';
 
 export const FilterButtons = styled.div`
   display: flex;

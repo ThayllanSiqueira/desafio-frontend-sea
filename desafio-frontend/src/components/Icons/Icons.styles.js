@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Icon, { PaperClipOutlined } from '@ant-design/icons';
+import Icon, { PaperClipOutlined, EllipsisOutlined } from '@ant-design/icons';
 
 export const FileIcon = styled(PaperClipOutlined)`
   font-size: 16px;
@@ -10,4 +10,4 @@ export const FileIcon = styled(PaperClipOutlined)`
 `;
 
 
-export { PaperClipOutlined, Icon };
+export { PaperClipOutlined, EllipsisOutlined, Icon };

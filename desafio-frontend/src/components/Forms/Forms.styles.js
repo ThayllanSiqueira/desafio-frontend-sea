@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import {
   Button as AntdButton,
   Upload as AntdUpload,
-  Select as AntdSelect
+  Select,
+  Switch,
+  Dropdown,
+  Radio,
+  DatePicker,
+  Checkbox
 } from 'antd';
 
 export const FormItem = styled.div`
@@ -101,7 +106,7 @@ export const StyledUpload = styled(AntdUpload)`
   }
 `;
 
-export const StyledSelect = styled(AntdSelect)`
+export const StyledSelect = styled(Select)`
   .ant-select-selector {
     border-color: #649FBF !important;
   }
@@ -111,4 +116,4 @@ export const StyledSelect = styled(AntdSelect)`
   }
 `;
 
-
+export { Switch, Dropdown, Radio, Select, DatePicker, Checkbox }

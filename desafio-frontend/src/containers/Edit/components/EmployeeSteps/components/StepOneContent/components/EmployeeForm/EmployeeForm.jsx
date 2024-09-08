@@ -1,12 +1,9 @@
 import {useState, useEffect} from 'react';
-import {
- Switch,
-} from 'antd';
 
 import { Formik, FieldArray, Form as FormikForm, Field } from 'formik';
 
-import SVGArrowLeft from '../SVGArrowLeft';
-import { FormItem, CustomButton, Button } from '../../../../../../../../components/Forms/Forms.styles';
+import SVGArrowLeft from '../../../../../../../../components/SVGs/SVGArrowLeft';
+import { FormItem, CustomButton, Button, Switch } from '../../../../../../../../components/Forms/Forms.styles';
 import { EmployeeCard } from '../../../../../../../../components/Containers/Cards.styles';
 import { Title } from '../../../../../../../../components/Typography/Typography.styles';
 import { Icon } from '../../../../../../../../components/Icons';
@@ -28,7 +25,6 @@ const ArrowLeftIcon = (props) => <Icon component={SVGArrowLeft} {...props} />;
 const EmployeeForm = () => {
 
   const {
-    loading,
     handleBackStatesOnPage,
     validationSchema,
     onFinish,

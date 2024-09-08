@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { Layout } from 'antd';
-
-const { Header, Content: AntdContent } = Layout;
+import { Header, Content} from '../../components/Containers/Layout.styles'
 
 export const StepsHeader = styled(Header)`
   display: flex;
@@ -43,14 +41,5 @@ export const ButtonContainer = styled.div`
     flex-direction: column;
     align-items: flex-end;
     margin-bottom: 2%;
-  }
-`;
-
-export const Content = styled(AntdContent)`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  @media (max-width: 768px) {
-    padding: 1rem;
   }
 `;

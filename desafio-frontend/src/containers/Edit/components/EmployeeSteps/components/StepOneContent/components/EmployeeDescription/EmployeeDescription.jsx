@@ -1,5 +1,5 @@
 import { EmployeeDescriptionContainer, DescriptionText } from './EmployeeDescription.styles';
-import SVGEmployee from '../SVGEmployee';
+import SVGEmployee from '../../../../../../../../components/SVGs/SVGEmployee';
 const EmployeeDescription = () => {
  return (
   <EmployeeDescriptionContainer>
