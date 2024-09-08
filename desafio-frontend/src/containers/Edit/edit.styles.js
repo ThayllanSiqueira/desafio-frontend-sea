@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Layout, Button as AntdButton } from 'antd';
+import { Layout } from 'antd';
 
 const { Header, Content: AntdContent } = Layout;
 
@@ -43,23 +43,6 @@ export const ButtonContainer = styled.div`
     flex-direction: column;
     align-items: flex-end;
     margin-bottom: 2%;
-  }
-`;
-
-export const CustomButton = styled(AntdButton)`
-  color: #FFF;
-  border-color: #649FBF;
-  background: #649FBF;
-  width: 15vw;
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  &:disabled {
-    color: #FFF;
-    border-color: #959595;
-    background: #959595;
   }
 `;
 

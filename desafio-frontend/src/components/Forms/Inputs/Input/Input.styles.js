@@ -5,11 +5,15 @@ import {
 
 export const Input = styled(AntdInput)`
  .ant-input {
-    border-color: #649FBF !important; /* Altere para a cor desejada */
+    border-color: #649FBF !important;
   }
 
   .ant-input-outlined, {
    border-color: #649FBF !important;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 
 `;

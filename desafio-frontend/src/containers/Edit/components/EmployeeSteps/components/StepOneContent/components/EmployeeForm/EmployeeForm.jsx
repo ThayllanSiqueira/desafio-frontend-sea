@@ -1,21 +1,19 @@
 import {useState, useEffect} from 'react';
 import {
- Form,
- Button,
  Switch,
 } from 'antd';
-import Icon from '@ant-design/icons';
+
 import { Formik, FieldArray, Form as FormikForm, Field } from 'formik';
 
 import SVGArrowLeft from '../SVGArrowLeft';
+import { FormItem, CustomButton, Button } from '../../../../../../../../components/Forms/Forms.styles';
+import { EmployeeCard } from '../../../../../../../../components/Containers/Cards.styles';
+import { Title } from '../../../../../../../../components/Typography/Typography.styles';
+import { Icon } from '../../../../../../../../components/Icons';
 import {
-  EmployeeCard,
   FormContainer,
   SectionSwitch,
-  Title,
-  ButtonContainer,
-  CustomButton,
-  FormItem,
+  EmployeeButtonContainer,
 } from './EmployeeForm.styles';
 
 
@@ -79,9 +77,9 @@ const EmployeeForm = () => {
             </SectionSwitch>
             <SectionEmployee />
             <SectionActivitiesEpis />
-            <ButtonContainer>
+            <EmployeeButtonContainer>
               <CustomButton block htmlType="submit">Salvar</CustomButton>
-            </ButtonContainer>
+            </EmployeeButtonContainer>
           </FormikForm>
         )}
       </Formik>

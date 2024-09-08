@@ -5,7 +5,6 @@ import { Input } from './Input.styles';
 const StyledInput = ({...props }) => (
   <Input
     {...props}
-
   />
 );
 

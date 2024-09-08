@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Icon from '@ant-design/icons';
-import { Button, theme } from 'antd';
+import { theme } from 'antd';
 
 import ComingSoon from '../../../../components/ComingSoon';
 import StepOneContent from './components/StepOneContent';

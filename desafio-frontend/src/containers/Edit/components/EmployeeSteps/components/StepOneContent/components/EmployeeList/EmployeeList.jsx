@@ -1,28 +1,25 @@
 import { useState, useEffect, useMemo } from 'react';
 
 import {
- Button,
  Flex,
- Typography,
  List,
  Switch,
 } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 
+import { CustomButton, FullHeightButton } from '../../../../../../../../components/Forms/Forms.styles';
+import { EmployeeCard } from '../../../../../../../../components/Containers/Cards.styles';
+import { Text, StyledTitle } from '../../../../../../../../components/Typography/Typography.styles';
 import {
- EmployeeCard,
- CustomButton,
  FilterButtons,
  FilterContainer,
  EmployeeCardList,
  EmployeeInfo,
  ResponsiveContainer,
  EmployeeActions,
- FullHeightButton,
  StyledDropdown,
  StyledMenu,
  StyledTag,
- StyledTitle,
  AlignedContainer
 } from './EmployeeList.styles';
 
@@ -33,7 +30,7 @@ import { URL_EMPLOYEES, URL_EMPLOYEES_ID } from '../../../../../../../../utils/c
 import { useEmployeeReducer } from '../../../../../../../../store/reducers/employeeReducer/useEmployeeReducer';
 import { roles } from '../../../../../../../../utils/constants/mockComponents';
 
-const { Title, Text } = Typography;
+
 
 const EmployeeList = ({ onAddEmployee }) => {
   const { editData } = useEditContext();

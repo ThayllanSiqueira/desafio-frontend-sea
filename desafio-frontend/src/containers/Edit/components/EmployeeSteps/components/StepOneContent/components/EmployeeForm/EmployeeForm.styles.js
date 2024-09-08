@@ -1,30 +1,4 @@
 import styled from 'styled-components';
-import {
-  Card,
-  Input as AntdInput,
-  Select as AntdSelect,
-  Upload as AntdUpload,
-  Button as AntdButton,
-} from 'antd';
-
-import { PaperClipOutlined } from '@ant-design/icons';
-
-export const EmployeeCard = styled(Card)`
-  height: 100%;
-
-  .ant-card-head {
-    background-color: #649FBF;
-    color: #FFF;
-  }
-
-  .ant-card-head-title {
-    font-size: 28px;
-
-    @media (max-width: 768px) {
-      font-size: 20px;
-    }
-  }
-`;
 
 export const FormContainer = styled.div`
   width: 100%;
@@ -52,16 +26,7 @@ export const SectionSwitch = styled.div`
   }
 `;
 
-export const Title = styled.h3`
-  margin: 0;
-  color: #555;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
-`;
-
-export const ButtonContainer = styled.div`
+export const EmployeeButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
@@ -69,35 +34,5 @@ export const ButtonContainer = styled.div`
   @media (max-width: 768px) {
     justify-content: center;
     margin-top: 10px;
-  }
-`;
-
-export const CustomButton = styled(AntdButton)`
-  color: #649FBF;
-  border-color: #649FBF;
-  width: 10vw;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-export const FormItem = styled.div`
-  margin-bottom: 24px;
-
-  .ant-form-item-label {
-    padding-bottom: 8px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.85);
-  }
-
-  .ant-form-item-control {
-    margin-top: 8px;
-  }
-
-  .ant-form-item-explain {
-    color: rgba(255, 0, 0, 0.85);
-    font-size: 12px;
-    margin-top: 4px;
   }
 `;

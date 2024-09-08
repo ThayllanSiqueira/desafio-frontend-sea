@@ -9,19 +9,17 @@ import {
 import Icon, { CloseOutlined, MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { useFormikContext, ErrorMessage  } from 'formik';
 
+import { FormItem, ErrorText } from '../../../../../../../../../../components/Forms/Forms.styles';
+import { Section } from '../../../../../../../../../../components/Containers/Divs.styles';
 import {
-  Section,
   RadioGroup,
-  // StyledInput,
   StyledSelect,
   StyledDatePicker,
-  FormItem,
-  ErrorText,
 } from './SectionEmployee.styles';
 
-import StyledInput from '../../../../../../../../../../components/Inputs/Input';
-import InputNumber from '../../../../../../../../../../components/Inputs/InputNumber';
-import InputDate from '../../../../../../../../../../components/Inputs/InputDate';
+import StyledInput from '../../../../../../../../../../components/Forms/Inputs/Input';
+import InputNumber from '../../../../../../../../../../components/Forms/Inputs/InputNumber';
+import InputDate from '../../../../../../../../../../components/Forms/Inputs/InputDate';
 import { roles } from '../../../../../../../../../../utils/constants/mockComponents';
 import { disableFutureDates } from '../../../../../../../../../../utils/functions/validation/validation';
 

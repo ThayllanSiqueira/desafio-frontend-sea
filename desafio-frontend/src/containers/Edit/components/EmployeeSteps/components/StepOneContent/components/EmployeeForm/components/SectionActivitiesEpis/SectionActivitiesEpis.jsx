@@ -7,20 +7,16 @@ import {
 } from 'antd';
 import { useFormikContext, FieldArray, ErrorMessage } from 'formik';
 
+import { FormItem, ErrorText, CustomButton, StyledSelect, StyledUpload } from '../../../../../../../../../../components/Forms/Forms.styles';
+import StyledInput  from '../../../../../../../../../../components/Forms/Inputs/Input';
+import { Title } from '../../../../../../../../../../components/Typography/Typography.styles';
+import { Section } from '../../../../../../../../../../components/Containers/Divs.styles';
+import { FileIcon } from '../../../../../../../../../../components/Icons';
 import {
-  Section,
-  Title,
-  StyledInput,
-  StyledSelect,
   InlineElements,
-  StyledUpload,
   UploadList,
   FileContainer,
   FileName,
-  FileIcon,
-  CustomButton,
-  FormItem,
-  ErrorText,
 } from './SectionActivitiesEpis.styles';
 
 import { useRequests } from '../../../../../../../../../../hooks/useRequests';

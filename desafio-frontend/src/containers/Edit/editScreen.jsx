@@ -7,10 +7,10 @@ import ComingSoon from '../../components/ComingSoon';
 
 import { useEditContext } from './hooks/useEditEmployeeContext';
 
+import { CustomButton } from '../../components/Forms/Forms.styles';
 import {
  StepsHeader,
  ButtonContainer,
- CustomButton,
  ContentWrapper,
 } from './edit.styles';
 

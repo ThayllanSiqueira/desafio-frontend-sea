@@ -1,36 +1,5 @@
 import styled from 'styled-components';
-import { Card, Button, Menu, Dropdown, Tag, Typography } from 'antd';
-
-const { Title, Text } = Typography;
-
-export const EmployeeCard = styled(Card)`
-  height: 100%;
-
-  .ant-card-head {
-    background-color: #649FBF;
-    color: #FFF;
-  }
-
-  .ant-card-head-title {
-    font-size: 28px;
-  }
-
-  @media (max-width: 768px) {
-    .ant-card-head-title {
-      font-size: 20px;
-    }
-  }
-`;
-
-export const CustomButton = styled(Button)`
-  color: #649FBF;
-  border-color: #649FBF;
-  width: 10vw;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
+import { Menu, Dropdown, Tag } from 'antd';
 
 export const FilterButtons = styled.div`
   display: flex;
@@ -100,35 +69,6 @@ export const ResponsiveContainer = styled.div`
   }
 `;
 
-export const FullHeightButton = styled(Button)`
-  height: 10vh;
-  width: 10vw;
-  box-sizing: border-box;
-  clip-path: inset(0 0 0 40%);
-
-  &.ant-btn-icon-only {
-    width: 10vw;
-    background-color: #649FBF;
-    color: #FFF;
-  }
-
-  &.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
-    color: #FFF;
-    border-color: #4096ff;
-    background-color: #649FBF;
-  }
-
-  &.ant-btn-icon-only .anticon {
-    font-size: 28px;
-    margin-left: 30px;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-  }
-`;
-
 export const StyledMenu = styled(Menu)`
   z-index: 1050;
   position: absolute;
@@ -161,16 +101,6 @@ export const StyledTag = styled(Tag)`
 
   @media (max-width: 768px) {
     font-size: 1em;
-  }
-`;
-
-export const StyledTitle = styled(Title)`
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1;
-
-  @media (max-width: 768px) {
-    font-size: 24px;
   }
 `;
 
