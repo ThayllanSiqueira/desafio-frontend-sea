@@ -12,6 +12,10 @@ export const useEmployeeList = () => {
   const { employees, setEmployees, setEmployeeId } = useEmployeeReducer();
   const [showActiveOnly, setShowActiveOnly] = useState(false);
   const [isButtonClearFilterDisabled, setIsButtonClearFilterDisabled] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const handleEditEmployee = async (employeeId) => {
     setEmployeeId(employeeId);
@@ -23,6 +27,7 @@ export const useEmployeeList = () => {
   const handleDeleteEmployee = async (employeeId) => {
     await request(URL_EMPLOYEES_ID.replace('{employeeId}', employeeId), MethodsEnum.DELETE)
     await request(URL_EMPLOYEES, MethodsEnum.GET, setEmployees)
+    openModal();
   };
 
   function getLabelByValue(value) {
@@ -69,8 +74,10 @@ export const useEmployeeList = () => {
     getLabelByValue,
     showFilter,
     isConcluded,
+    closeModal,
     employees,
     showActiveOnly,
     isButtonClearFilterDisabled,
+    isModalOpen,
   }
 }

@@ -16,7 +16,7 @@ import {
   AlignedContainer
 } from './EmployeeList.styles';
 
-
+import ModalConfirmation from '../../../../../../../../components/Modals/ModalConfirmation/ModalConfirmation';
 import { useEmployeeList } from './useEmployeeList';
 
 const EmployeeList = ({ onAddEmployee }) => {
@@ -25,9 +25,11 @@ const EmployeeList = ({ onAddEmployee }) => {
     getLabelByValue,
     showFilter,
     isConcluded,
+    closeModal,
     employees,
     showActiveOnly,
     isButtonClearFilterDisabled,
+    isModalOpen,
   } = useEmployeeList();
 
  if (!employees) {
@@ -42,6 +44,11 @@ const EmployeeList = ({ onAddEmployee }) => {
     <EmployeeCard
     title="Funcionário(s)"
     >
+      <ModalConfirmation
+        isOpen={isModalOpen}
+        handleClose={closeModal}
+        title="Usuário excluído com sucesso!"
+      />
       <Flex
         vertical
         gap="small"
@@ -83,10 +90,10 @@ const EmployeeList = ({ onAddEmployee }) => {
           </EmployeeInfo>
           <EmployeeActions>
             <StyledDropdown
-            overlay={<StyledMenu items={getMenuItems(item.id)} />}
-            trigger={['click']}
-            overlayStyle={{ position: 'absolute', zIndex: 1050 }}>
-            <FullHeightButton icon={<EllipsisOutlined />} />
+              overlay={<StyledMenu items={getMenuItems(item.id)} />}
+              trigger={['click']}
+              overlayStyle={{ position: 'absolute', zIndex: 1050 }}>
+              <FullHeightButton icon={<EllipsisOutlined />} />
             </StyledDropdown>
           </EmployeeActions>
           </EmployeeCardList>

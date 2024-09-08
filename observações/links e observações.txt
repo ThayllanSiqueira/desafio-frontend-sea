@@ -4,9 +4,9 @@ https://www.figma.com/proto/gGePjuPTHdH7pISofjrzxB/Desafio-React?type=design&nod
 https://learn.liferay.com/w/dxp/liferay-development/building-applications/developing-a-javascript-application/using-react
 
 - A melhorar
-* Revisar arquivos (refactor e clean code)
+* Correçao da func alterar employee (Mudar titulo para alterar funcionario)
+* Fidelidade ao protótipo
 * Layout Responsivo (a responsividade não ficou muito boa)
-* Modal de exclusão (esqueci lembrei depois que entreguei)
 
 
 Olá Thayllan, Bom dia!
@@ -25,9 +25,3 @@ Gostaríamos de oferecer uma oportunidade para você melhorar esses pontos. Caso
 4. **Validação de Formulários**: - Implemente validações utilizando Formik e Yup. Certifique-se de que os campos críticos, como CPF e data, estejam validados corretamente, e que mensagens de erro claras sejam exibidas ao usuário.
 
 Se você tiver interesse em melhorar o projeto, estamos à disposição para esclarecer dúvidas e fornecer suporte adicional. Acreditamos no seu potencial e esperamos que você aproveite essa oportunidade para crescer ainda mais.
-
-# Correçao da func alterar employee
-# Fidelidade ao protótipo
-
-
-
