@@ -7,7 +7,8 @@ import { log } from '../logger/presentation';
 let dbpath: string;
 
 if (process.env.NODE_ENV?.trim() === 'development') {
-  dbpath = `${appRoot}/infra/db/desafiodb.db`;
+  // dbpath = `${appRoot}/infra/db/desafiodb.db`;
+  dbpath = `${appRoot}${process.env.PATHDATABASE}`;
 }
 
 if (process.env.NODE_ENV?.trim() === 'production') {

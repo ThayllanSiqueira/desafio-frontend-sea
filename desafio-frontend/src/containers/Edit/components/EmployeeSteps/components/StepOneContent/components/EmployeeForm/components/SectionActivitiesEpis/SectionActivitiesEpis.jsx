@@ -5,6 +5,7 @@ import {
  Checkbox,
  List,
 } from 'antd';
+import { useFormikContext } from 'formik';
 
 import {
   Section,
@@ -34,19 +35,22 @@ const SectionActivitiesEpis = () => {
  const { request } = useRequests();
  const { activities, setActivities } = useActivitieReducer();
  const { epis, setEpis } = useEpiReducer();
+ const { values, setFieldValue, errors, touched, handleChange, setFieldTouched } = useFormikContext();
 
  useEffect(() => {
   request(URL_ACTIVITIES, MethodsEnum.GET, setActivities)
   request(URL_EPIS, MethodsEnum.GET, setEpis)
 }, []);
 
- const handleChange = (info) => {
+ const handleChangeUpload = (info) => {
   let newFileList = [...info.fileList];
   setFileList(newFileList);
  };
 
  const onChangeShowEPI = (e) => {
-  setIsEPIVisible(!e.target.checked);
+    const isChecked = e.target.checked;
+    setIsEPIVisible(!isChecked);
+    setFieldValue('noEpi', isChecked);
  };
 
 
@@ -65,8 +69,13 @@ const SectionActivitiesEpis = () => {
  return (
      <Section>
       <Title>Quais EPIs o trabalhador usa na atividade?</Title>
-      <Form.Item name="noEpi" valuePropName="checked">
-       <Checkbox onChange={onChangeShowEPI}>O trabalhador não usa EPI.</Checkbox>
+      <Form.Item
+        name="noEpi"
+        valuePropName="checked"
+      >
+       <Checkbox
+        name="noEpi"
+        onChange={onChangeShowEPI}>O trabalhador não usa EPI.</Checkbox>
       </Form.Item>
       {
        isEPIVisible && (
@@ -77,12 +86,17 @@ const SectionActivitiesEpis = () => {
             {fields.map((field, index) => (
              <Section key={field.key}>
               <Form.Item
-               label="Selecione a atividade"
-               name={[field.name, 'id']}
-               rules={[{ required: true, message: 'Por favor selecione a atividade!' }]}
+                label="Selecione a atividade"
+                name={[field.name, 'id']}
+                validateStatus={touched.activitiesEpis?.[index]?.id && errors.activitiesEpis?.[index]?.id ? 'error' : ''}
+                help={touched.activitiesEpis?.[index]?.id && errors.activitiesEpis?.[index]?.id}
+                /* validateStatus={touched.activitiesEpis?.[index]?.id ? 'error' : ''}
+                help={errors.activitiesEpis?.[index]?.id} */
               >
                <StyledSelect
+                name={`activitiesEpis.${index}.id`}
                 placeholder="Selecione a atividade"
+                onChange={value => setFieldValue(`activitiesEpis.${index}.id`, value)}
                 options={activities.map((activitie) => ({
                   value: `${activitie.id}`,
                   label: `${activitie.name}`,
@@ -97,11 +111,16 @@ const SectionActivitiesEpis = () => {
                   {subFields.map((subField, subIndex) => (
                   <InlineElements key={subField.key}>
                     <Form.Item
-                     label="Selecione o EPI"
-                     name={[subField.name, 'id']}
-                     rules={[{ required: true, message: 'Por favor selecione o EPI!' }]}
+                      label="Selecione o EPI"
+                      name={[subField.name, 'id']}
+                      validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.id && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.id ? 'error' : ''}
+                      help={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.id && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.id}
+                      /* validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.id ? 'error' : ''}
+                      help={errors.activitiesEpis?.[index]?.epis?.[subIndex]?.id} */
                     >
                     <StyledSelect
+                      name={[subField.name, 'id']}
+                      onChange={value => setFieldValue(`activitiesEpis.${index}.epis.${subIndex}.id`, value)}
                       placeholder="Selecione o EPI"
                       options={epis.map((epi) => ({
                         value: `${epi.id}`,
@@ -110,12 +129,20 @@ const SectionActivitiesEpis = () => {
                     />
 
                     </Form.Item>
+
                     <Form.Item
-                     label="Informe o número do CA"
-                     name={[subField.name, 'caNumber']}
-                     rules={[{ required: true, message: 'Por favor insira o número do CA!' }]}
+                      label="Informe o número do CA"
+                      name={[subField.name, 'caNumber']}
+                      validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber ? 'error' : ''}
+                      help={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber}
+                      /* validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber ? 'error' : ''}
+                      help={errors.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber} */
                     >
-                     <StyledInput placeholder="Número do CA" />
+                      <StyledInput
+                        name={[subField.name, 'caNumber']}
+                        placeholder="Número do CA"
+                        onChange={e => setFieldValue(`activitiesEpis.${index}.epis.${subIndex}.caNumber`, e.target.value)}
+                      />
                     </Form.Item>
 
                     {subIndex === 0 ? (
@@ -176,7 +203,7 @@ const SectionActivitiesEpis = () => {
           <Form.Item name="annex">
            <StyledUpload
             fileList={fileList}
-            onChange={handleChange}
+            onChange={handleChangeUpload}
             showUploadList={false}
             maxCount={1}
            >

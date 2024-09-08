@@ -4,5 +4,4 @@
 /dist
 /logs
 package-lock.json
-.env
 reg.lic
