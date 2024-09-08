@@ -13,3 +13,14 @@ export const Input = styled(AntdInput)`
   }
 
 `;
+
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  /* Adicione aqui seus estilos personalizados para a Label */
+`;
+
+export const InputWrapper = styled.div`
+  /* Adicione aqui estilos para garantir que a label e o input sejam exibidos corretamente */
+`;

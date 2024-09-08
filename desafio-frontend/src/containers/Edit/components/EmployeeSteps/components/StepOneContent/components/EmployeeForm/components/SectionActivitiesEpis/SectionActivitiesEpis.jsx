@@ -6,9 +6,10 @@ import {
   FileContainer,
   FileName,
 } from './SectionActivitiesEpis.styles';
-import { FormItem, ErrorText, CustomButton, StyledSelect, StyledUpload } from '../../../../../../../../../../components/Forms/Forms.styles';
+import { FormItem, ErrorText, CustomButton, StyledUpload } from '../../../../../../../../../../components/Forms/Forms.styles';
 import StyledInput  from '../../../../../../../../../../components/Forms/Inputs/Input';
-import { Select, Checkbox, Option }  from '../../../../../../../../../../components/Forms/Forms.styles';
+import StyledSelect  from '../../../../../../../../../../components/Forms/Inputs/Select';
+import { Checkbox, Option }  from '../../../../../../../../../../components/Forms/Forms.styles';
 import { Title } from '../../../../../../../../../../components/Typography/Typography.styles';
 import { Section, List } from '../../../../../../../../../../components/Containers/Divs.styles';
 import { FileIcon } from '../../../../../../../../../../components/Icons';
@@ -27,6 +28,12 @@ const SectionActivitiesEpis = () => {
 
   const { getFieldProps, setFieldValue,  values, errors, touched } = useFormikContext();
 
+  const isLoading = activities.length === 0 || epis.length === 0;
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Section>
       <Title>Quais EPIs o trabalhador usa na atividade?</Title>
@@ -42,13 +49,14 @@ const SectionActivitiesEpis = () => {
           <FieldArray name="activitiesEpis">
             {({ push, remove }) => (
               <div>
-                {values.activitiesEpis.map((activity, index) => (
+                {values?.activitiesEpis?.map((activity, index) => (
                   <Section key={index}>
                     <FormItem>
                       <StyledSelect
+                        label="Selecione a atividade"
                         name={`activitiesEpis[${index}].id`}
                         placeholder="Selecione a atividade"
-                        value={values.activitiesEpis[index].id}
+                        value={Number(values.activitiesEpis[index].id) || undefined}
                         onChange={(value) => setFieldValue(`activitiesEpis[${index}].id`, value)}
                         options={activities.map(activity => ({
                           value: activity.id,
@@ -65,9 +73,10 @@ const SectionActivitiesEpis = () => {
                             <InlineElements key={epiIndex}>
                               <FormItem>
                                 <StyledSelect
+                                  label="Selecione o EPI"
                                   name={`activitiesEpis[${index}].epis[${epiIndex}].id`}
                                   placeholder="Selecione o EPI"
-                                  value={values.activitiesEpis[index].epis[epiIndex].id}
+                                  value={Number(values.activitiesEpis[index].epis[epiIndex].id) || undefined}
                                   onChange={(value) => setFieldValue(`activitiesEpis[${index}].epis[${epiIndex}].id`, value)}
                                   options={epis.map(epi => ({
                                     value: epi.id,
@@ -79,6 +88,7 @@ const SectionActivitiesEpis = () => {
 
                               <FormItem>
                                 <StyledInput
+                                  label="Informe o número do CA"
                                   name={`activitiesEpis[${index}].epis[${epiIndex}].caNumber`}
                                   placeholder="Número do CA"
                                   {...getFieldProps(`activitiesEpis[${index}].epis[${epiIndex}].caNumber`)}
@@ -100,16 +110,17 @@ const SectionActivitiesEpis = () => {
                       )}
                     </FieldArray>
 
-                      {values.activitiesEpis.length > 1 && (
+                      {values?.activitiesEpis?.length > 1 && (
                         <CustomButton onClick={() => remove(index)}>Excluir atividade</CustomButton>
                       )}
                       {index === values.activitiesEpis.length - 1 && (
                         <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })}>Adicionar outra atividade</CustomButton>
                       )}
                   </Section>
-                ))}
+                )
+                )}
 
-                {values.activitiesEpis.length === 0 && (
+                {values?.activitiesEpis?.length === 0 && (
                   <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })}>Adicionar outra atividade</CustomButton>
                 )}
               </div>

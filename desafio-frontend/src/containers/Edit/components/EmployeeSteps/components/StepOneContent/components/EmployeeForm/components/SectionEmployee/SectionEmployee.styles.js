@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Select, DatePicker } from '../../../../../../../../../../components/Forms/Forms.styles';
 
 export const RadioGroup = styled.div`
   display: flex;
@@ -20,26 +19,8 @@ export const RadioGroup = styled.div`
   }
 `;
 
-export const StyledDatePicker = styled(DatePicker)`
-  .ant-input {
-    border-color: #649FBF !important;
-  }
-
-  .ant-input-outlined {
-    border-color: #649FBF !important;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-export const StyledSelect = styled(Select)`
-  .ant-select-selector {
-    border-color: #649FBF !important;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
 `;

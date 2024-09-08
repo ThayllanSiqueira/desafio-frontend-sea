@@ -22,9 +22,16 @@ const EmployeeForm = () => {
   const {
     handleBackStatesOnPage,
     onFinish,
-    validationSchemaYup,
     initialValuesFormik,
+    validationSchemaYup,
+    employeeId,
   } = useEmployeeForm();
+
+  const isLoading = Object.keys(initialValuesFormik).length === 0 || (employeeId !== 0 && initialValuesFormik.name === '');
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <EmployeeCard
@@ -36,7 +43,7 @@ const EmployeeForm = () => {
           onClick={() => handleBackStatesOnPage()}
           style={{ marginRight: 8 }}
         />
-        Adicionar Funcionário
+        {employeeId !== 0 ? 'Alterar Funcionário' : 'Adicionar Funcionário'}
         </>
       }
     >
@@ -45,11 +52,10 @@ const EmployeeForm = () => {
           initialValues={initialValuesFormik}
           validationSchema={validationSchemaYup}
           onSubmit={(values) => {
-            console.log('Formik values:', values);
             onFinish(values);
           }}
         >
-          {({ handleSubmit, handleChange }) => (
+          {({ handleSubmit, handleChange, values }) => (
             <FormikForm
             onSubmit={handleSubmit}
             >
@@ -58,10 +64,11 @@ const EmployeeForm = () => {
 
                 <FormItem>
                 <Switch
+                  checked={values.status}
                   checkedChildren="Ativo"
                   unCheckedChildren="Inativo"
                   onChange={(checked) =>
-                    handleChange({ target: { name: 'status', value: checked } })
+                    setFieldValue('status', checked)
                   }
                 />
                 </FormItem>

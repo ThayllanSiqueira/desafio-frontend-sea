@@ -1,11 +1,10 @@
-import React from 'react';
-import { PatternFormat  } from 'react-number-format';
-import { Input } from './Input.styles';
+import { Input, Label, InputWrapper } from './Input.styles';
 
-const StyledInput = ({...props }) => (
-  <Input
-    {...props}
-  />
+const StyledInput = ({label, ...props }) => (
+  <InputWrapper>
+    {label && <Label>{label}</Label>}
+    <Input {...props} />
+  </InputWrapper>
 );
 
 export default StyledInput;

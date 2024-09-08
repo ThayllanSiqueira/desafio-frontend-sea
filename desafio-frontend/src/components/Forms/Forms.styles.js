@@ -108,14 +108,4 @@ export const StyledUpload = styled(AntdUpload)`
   }
 `;
 
-export const StyledSelect = styled(Select)`
-  .ant-select-selector {
-    border-color: #649FBF !important;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
 export { Switch, Dropdown, Radio, Select, DatePicker, Checkbox, Option }

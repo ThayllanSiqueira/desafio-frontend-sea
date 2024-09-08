@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import {
-  DatePicker as AntdDatePicker
+  DatePicker
 } from 'antd';
 
-export const StyledDatePicker = styled(AntdDatePicker)`
+export const StyledDatePicker = styled(DatePicker)`
   .ant-input {
     border-color: #649FBF !important;
   }
@@ -16,3 +16,15 @@ export const StyledDatePicker = styled(AntdDatePicker)`
     width: 100%;
   }
 `;
+
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  /* Adicione aqui seus estilos personalizados para a Label */
+`;
+
+export const InputWrapper = styled.div`
+  /* Adicione aqui estilos para garantir que a label e o input sejam exibidos corretamente */
+`;
+

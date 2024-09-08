@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import moment from 'moment';
 
 import { useEditContext } from '../../../../../../hooks/useEditEmployeeContext';
@@ -13,6 +13,7 @@ import { MethodsEnum } from '../../../../../../../../utils/enums/methods.enum';
 import { validationSchemaYup } from '../../../../../../../../utils/functions/validation/validation';
 
 export const useEmployeeForm = () => {
+  const [initialValuesFormik, setInitialValuesFormik] = useState({});
   const { editData } = useEditContext();
   const { setNotification } = useAppGlobalContext();
   const { employeeId, employee, setEmployee, setEmployeeId } = useEmployeeReducer();
@@ -21,43 +22,42 @@ export const useEmployeeForm = () => {
   const {request} = useRequests();
 
   useEffect(() => {
-      if(employeeId){
-        request(URL_EMPLOYEES_ID.replace('{employeeId}', employeeId), MethodsEnum.GET, setEmployee);
-      }
-   }, [employeeId]);
+    if(employeeId){
+      request(URL_EMPLOYEES_ID.replace('{employeeId}', employeeId), MethodsEnum.GET, setEmployee);
+    }
+  }, [employeeId]);
 
-   /* useEffect(() => {
-    const fields = form.getFieldValue('activitiesEpis');
+  useEffect(() => {
     if (employee) {
-      const initialData = { ...employee.employee };
-      initialData.birthdate = moment(initialData.birthdate, 'YYYY-MM-DD');
-      addInitialFields(initialData);
-    }else if(!fields || fields.length === 0){
-      addInitialFields();
-    }
-  }, [employee]); */
-
-   /* const addInitialFields = (initialFields) => {
-    if (initialFields) {
-      form.setFieldsValue(initialFields);
+      const initialDataEmployee = { ...employee.employee };
+      initialDataEmployee.birthdate = moment(initialDataEmployee.birthdate, 'YYYY-MM-DD');
+      setInitialValuesFormik(initialDataEmployee);
     } else {
-      form.setFieldsValue({
+      const initialValues = {
+        status: true,
+        name: '',
+        cpf: '',
+        rg: '',
         sex: 'Feminino',
+        birthdate: '',
+        role: '',
+        noEpi: false,
         activitiesEpis: [
-        {
-          id: '',
-          epis: [
-           {
+          {
             id: '',
-            caNumber: '',
-           },
-          ],
-        },
-       ],
-      });
+            epis: [
+              {
+                id: '',
+                caNumber: '',
+              },
+            ],
+          },
+        ],
+      }
+      setInitialValuesFormik(initialValues);
     }
+  }, [employee]);
 
-   }; */
 
   const handleBackStatesOnPage = (event) => {
     setEmployee(null);
@@ -82,32 +82,11 @@ export const useEmployeeForm = () => {
     editData.setIsEmployeeFormVisible((prev) => !prev);
   };
 
-  const initialValuesFormik = {
-    status: true,
-    name: '',
-    cpf: '',
-    rg: '',
-    sex: 'Feminino',
-    birthdate: '',
-    role: '',
-    noEpi: false,
-    activitiesEpis: [
-      {
-        id: '',
-        epis: [
-          {
-            id: '',
-            caNumber: '',
-          },
-        ],
-      },
-    ],
-  }
-
   return {
     handleBackStatesOnPage,
     onFinish,
-    validationSchemaYup,
     initialValuesFormik,
+    validationSchemaYup,
+    employeeId,
   }
 }

@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 import {
-  Input as AntdInput,
+  Select
 } from 'antd';
 
-export const Input = styled(AntdInput)`
- .ant-input {
+export const SelectStyled = styled(Select)`
+  .ant-select-selector {
     border-color: #649FBF !important;
-  }
-
-  .ant-input-outlined, {
-   border-color: #649FBF !important;
   }
 
   @media (max-width: 768px) {
@@ -21,9 +17,8 @@ export const Label = styled.label`
   display: block;
   margin-bottom: 0.5em;
   font-weight: bold;
-  /* Adicione aqui seus estilos personalizados para a Label */
 `;
 
 export const InputWrapper = styled.div`
-  /* Adicione aqui estilos para garantir que a label e o input sejam exibidos corretamente */
+
 `;
