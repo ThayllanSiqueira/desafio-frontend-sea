@@ -7,7 +7,7 @@ import {
   } from 'antd';
 
 import Icon, { CloseOutlined, MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { useFormikContext } from 'formik';
+import { useFormikContext, ErrorMessage  } from 'formik';
 
 import {
   Section,
@@ -15,6 +15,8 @@ import {
   // StyledInput,
   StyledSelect,
   StyledDatePicker,
+  FormItem,
+  ErrorText,
 } from './SectionEmployee.styles';
 
 import StyledInput from '../../../../../../../../../../components/Inputs/Input';
@@ -24,83 +26,63 @@ import { roles } from '../../../../../../../../../../utils/constants/mockCompone
 import { disableFutureDates } from '../../../../../../../../../../utils/functions/validation/validation';
 
 const SectionEmployee = () => {
-  const { values, handleChange, setFieldValue, errors, touched } = useFormikContext();
+  const { getFieldProps } = useFormikContext();
 
   return (
       <Section>
         <Row gutter={16}>
         <Col span={12}>
-          <Form.Item
-              label="Nome"
-              name="name"
-              validateStatus={touched.name && errors.name ? 'error' : ''}
-              help={touched.name && errors.name ? errors.name : ''}
-          >
-            <StyledInput name="name" placeholder="Nome" onChange={handleChange} />
-          </Form.Item>
 
-          <Form.Item
-            label="CPF"
-            name="cpf"
-            validateStatus={touched.cpf && errors.cpf ? 'error' : ''}
-            help={touched.cpf && errors.cpf ? errors.cpf : ''}
-          >
-            <InputNumber name="cpf" mask={"###.###.###-##"}  placeholder="999.999.999-99" onChange={handleChange} />
-          </Form.Item>
+          <FormItem>
+            <StyledInput name="name" placeholder="Nome" {...getFieldProps('name')} />
+            <ErrorMessage name="name" component={ErrorText} />
+            </FormItem>
 
-          <Form.Item
-            label="RG"
-            name="rg"
-            validateStatus={touched.rg && errors.rg ? 'error' : ''}
-            help={touched.rg && errors.rg ? errors.rg : ''}
-          >
-            <InputNumber name="rg"  mask={"#########"}  placeholder="RG" onChange={handleChange} />
-          </Form.Item>
+          <FormItem>
+            <InputNumber name="cpf" mask={"###.###.###-##"}  placeholder="999.999.999-99" {...getFieldProps('cpf')} />
+            <ErrorMessage name="cpf" component={ErrorText} />
+          </FormItem>
+
+          <FormItem>
+            <InputNumber name="rg"  mask={"#########"}  placeholder="RG" {...getFieldProps('rg')} />
+            <ErrorMessage name="rg" component={ErrorText} />
+          </FormItem>
+
         </Col>
         <Col span={12}>
-          <Form.Item
-            label="Sexo"
-            name="sex"
-            validateStatus={touched.sex && errors.sex ? 'error' : ''}
-            help={touched.sex && errors.sex ? errors.sex : ''}
-          >
+
+          <FormItem>
             <Radio.Group
               name="sex"
-              onChange={handleChange}
+              {...getFieldProps('sex')}
             >
               <Radio value="Feminino">Feminino</Radio>
               <Radio value="Masculino">Masculino</Radio>
             </Radio.Group>
-          </Form.Item>
+            <ErrorMessage name="sex" component={ErrorText} />
+            </FormItem>
 
-          <Form.Item
-            label="Data de Nascimento"
-            name="birthdate"
-            validateStatus={touched.birthdate && errors.birthdate ? 'error' : ''}
-            help={touched.birthdate && errors.birthdate ? errors.birthdate : ''}
-          >
+          <FormItem>
             <StyledDatePicker
               name="birthdate"
               format="DD/MM/YYYY"
               placeholder="DD/MM/YYYY"
               disabledDate={disableFutureDates}
-              onChange={(date) => setFieldValue('birthdate', date)}
+              {...getFieldProps('birthdate')}
             />
-          </Form.Item>
+            <ErrorMessage name="birthdate" component={ErrorText} />
+            </FormItem>
 
-          <Form.Item
-            label="Cargo"
-            name="role"
-            validateStatus={touched.role && errors.role ? 'error' : ''}
-            help={touched.role && errors.role ? errors.role : ''}
-          >
+          <FormItem>
             <StyledSelect
               name="role"
               placeholder="Escolha Cargo"
-              onChange={(value) => setFieldValue('role', value)}
               options={roles}
+              {...getFieldProps('birthdate')}
             />
-          </Form.Item>
+            <ErrorMessage name="role" component={ErrorText} />
+            </FormItem>
+
         </Col>
         </Row>
       </Section>

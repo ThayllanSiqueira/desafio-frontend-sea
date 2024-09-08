@@ -5,7 +5,7 @@ import {
  Checkbox,
  List,
 } from 'antd';
-import { useFormikContext } from 'formik';
+import { useFormikContext, FieldArray, ErrorMessage } from 'formik';
 
 import {
   Section,
@@ -19,6 +19,8 @@ import {
   FileName,
   FileIcon,
   CustomButton,
+  FormItem,
+  ErrorText,
 } from './SectionActivitiesEpis.styles';
 
 import { useRequests } from '../../../../../../../../../../hooks/useRequests';
@@ -35,7 +37,8 @@ const SectionActivitiesEpis = () => {
  const { request } = useRequests();
  const { activities, setActivities } = useActivitieReducer();
  const { epis, setEpis } = useEpiReducer();
- const { values, setFieldValue, errors, touched, handleChange, setFieldTouched } = useFormikContext();
+
+ const { getFieldProps, setFieldValue,  values, errors, touched } = useFormikContext();
 
  useEffect(() => {
   request(URL_ACTIVITIES, MethodsEnum.GET, setActivities)
@@ -69,88 +72,71 @@ const SectionActivitiesEpis = () => {
  return (
      <Section>
       <Title>Quais EPIs o trabalhador usa na atividade?</Title>
-      <Form.Item
-        name="noEpi"
-        valuePropName="checked"
-      >
+
+      <FormItem>
        <Checkbox
         name="noEpi"
         onChange={onChangeShowEPI}>O trabalhador não usa EPI.</Checkbox>
-      </Form.Item>
+        </FormItem>
+
       {
        isEPIVisible && (
         <>
-         <Form.List name="activitiesEpis">
-          {(fields, { add, remove }) => (
+         <FieldArray name="activitiesEpis">
+          {({ push, remove }) => (
            <div>
-            {fields.map((field, index) => (
-             <Section key={field.key}>
-              <Form.Item
-                label="Selecione a atividade"
-                name={[field.name, 'id']}
-                validateStatus={touched.activitiesEpis?.[index]?.id && errors.activitiesEpis?.[index]?.id ? 'error' : ''}
-                help={touched.activitiesEpis?.[index]?.id && errors.activitiesEpis?.[index]?.id}
-                /* validateStatus={touched.activitiesEpis?.[index]?.id ? 'error' : ''}
-                help={errors.activitiesEpis?.[index]?.id} */
-              >
-               <StyledSelect
-                name={`activitiesEpis.${index}.id`}
-                placeholder="Selecione a atividade"
-                onChange={value => setFieldValue(`activitiesEpis.${index}.id`, value)}
-                options={activities.map((activitie) => ({
-                  value: `${activitie.id}`,
-                  label: `${activitie.name}`,
-                }))}
-              />
-              </Form.Item>
+            {values.activitiesEpis.map((activity, index) => (
+             <Section key={index}>
+
+              <FormItem>
+                <StyledSelect
+                  name={`activitiesEpis[${index}].id`}
+                  placeholder="Selecione a atividade"
+                  {...getFieldProps(`activitiesEpis[${index}].id`)}
+                  options={activities.map(activity => ({
+                    value: activity.id,
+                    label: activity.name,
+                  }))}
+                />
+                <ErrorMessage name={`activitiesEpis[${index}].id`} component={ErrorText} />
+                </FormItem>
 
 
-               <Form.List name={[field.name, 'epis']}>
-                {(subFields, subOpt) => (
+               <FieldArray name={`activitiesEpis[${index}].epis`}>
+               {({ push: pushEpi, remove: removeEpi }) => (
                  <div>
-                  {subFields.map((subField, subIndex) => (
-                  <InlineElements key={subField.key}>
-                    <Form.Item
-                      label="Selecione o EPI"
-                      name={[subField.name, 'id']}
-                      validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.id && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.id ? 'error' : ''}
-                      help={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.id && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.id}
-                      /* validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.id ? 'error' : ''}
-                      help={errors.activitiesEpis?.[index]?.epis?.[subIndex]?.id} */
-                    >
+                  {activity.epis.map((epi, epiIndex) => (
+                  <InlineElements key={epiIndex}>
+
+                    <FormItem>
                     <StyledSelect
-                      name={[subField.name, 'id']}
-                      onChange={value => setFieldValue(`activitiesEpis.${index}.epis.${subIndex}.id`, value)}
+                      name={`activitiesEpis[${index}].epis[${epiIndex}].id`}
                       placeholder="Selecione o EPI"
-                      options={epis.map((epi) => ({
-                        value: `${epi.id}`,
-                        label: `${epi.name}`,
-                    }))}
+                      {...getFieldProps(`activitiesEpis[${index}].epis[${epiIndex}].id`)}
+                      options={epis.map(epi => ({
+                        value: epi.id,
+                        label: epi.name,
+                      }))}
                     />
+                    <ErrorMessage name={`activitiesEpis[${index}].epis[${epiIndex}].id`} component={ErrorText} />
+                    </FormItem>
 
-                    </Form.Item>
-
-                    <Form.Item
-                      label="Informe o número do CA"
-                      name={[subField.name, 'caNumber']}
-                      validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber ? 'error' : ''}
-                      help={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber && errors.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber}
-                      /* validateStatus={touched.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber ? 'error' : ''}
-                      help={errors.activitiesEpis?.[index]?.epis?.[subIndex]?.caNumber} */
-                    >
+                    <FormItem>
                       <StyledInput
-                        name={[subField.name, 'caNumber']}
+                        name={`activitiesEpis[${index}].epis[${epiIndex}].caNumber`}
                         placeholder="Número do CA"
-                        onChange={e => setFieldValue(`activitiesEpis.${index}.epis.${subIndex}.caNumber`, e.target.value)}
+                        {...getFieldProps(`activitiesEpis[${index}].epis[${epiIndex}].caNumber`)}
                       />
-                    </Form.Item>
+                      <ErrorMessage name={`activitiesEpis[${index}].epis[${epiIndex}].caNumber`} component={ErrorText} />
+                      </FormItem>
 
-                    {subIndex === 0 ? (
-                     <CustomButton onClick={() => subOpt.add()}>
+
+                    {epiIndex === 0 ? (
+                     <CustomButton onClick={() => pushEpi({ id: '', caNumber: '' })}>
                       Adicionar EPI
                      </CustomButton>
                     ) : (
-                     <CustomButton onClick={() => subOpt.remove(subField.name)}>
+                     <CustomButton onClick={() => removeEpi(epiIndex)}>
                       Remover EPI
                      </CustomButton>
                     )}
@@ -158,29 +144,24 @@ const SectionActivitiesEpis = () => {
                   ))}
                  </div>
                 )}
-               </Form.List>
+               </FieldArray>
 
-
-              {index >= fields.length - 1 ? (
-               <CustomButton onClick={() => handleAddActivity(add)} block>
-                Adicionar outra atividade
-               </CustomButton>
-              ) : (
-               <CustomButton onClick={() => remove(field.name)} block>
-                Excluir atividade
-               </CustomButton>
-              )}
+                {values.activitiesEpis.length > 1 && (
+                  <CustomButton onClick={() => remove(index)}>Excluir atividade</CustomButton>
+                )}
+                {index === values.activitiesEpis.length - 1 && (
+                  <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })}>Adicionar outra atividade</CustomButton>
+                )}
              </Section>
             ))}
 
-            {fields.length === 0 && (
-             <CustomButton onClick={() => handleAddActivity(add)} block>
-              Adicionar outra atividade
-             </CustomButton>
-            )}
+              {values.activitiesEpis.length === 0 && (
+                  <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })}>Adicionar outra atividade</CustomButton>
+                )}
+
            </div>
           )}
-         </Form.List>
+         </FieldArray>
 
          <Section>
           <Title>Adicione Atestado de Saúde (opcional):</Title>
@@ -200,7 +181,8 @@ const SectionActivitiesEpis = () => {
             />
            </UploadList>
           )}
-          <Form.Item name="annex">
+
+          <FormItem>
            <StyledUpload
             fileList={fileList}
             onChange={handleChangeUpload}
@@ -209,7 +191,7 @@ const SectionActivitiesEpis = () => {
            >
             <CustomButton>Selecionar arquivo</CustomButton>
            </StyledUpload>
-          </Form.Item>
+           </FormItem>
          </Section>
         </>
        )

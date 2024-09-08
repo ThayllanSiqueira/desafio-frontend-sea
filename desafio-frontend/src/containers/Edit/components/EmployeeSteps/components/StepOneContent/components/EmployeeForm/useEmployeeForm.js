@@ -24,7 +24,6 @@ import { roles } from '../../../../../../../../utils/constants/mockComponents';
 import { createGlobalStyle } from 'styled-components';
 
 export const useEmployeeForm = () => {
-  const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const { editData } = useEditContext();
   const { setNotification } = useAppGlobalContext();
@@ -39,7 +38,7 @@ export const useEmployeeForm = () => {
       }
    }, [employeeId]);
 
-   useEffect(() => {
+   /* useEffect(() => {
     const fields = form.getFieldValue('activitiesEpis');
     if (employee) {
       const initialData = { ...employee.employee };
@@ -48,9 +47,9 @@ export const useEmployeeForm = () => {
     }else if(!fields || fields.length === 0){
       addInitialFields();
     }
-  }, [employee]);
+  }, [employee]); */
 
-   const addInitialFields = (initialFields) => {
+   /* const addInitialFields = (initialFields) => {
     if (initialFields) {
       form.setFieldsValue(initialFields);
     } else {
@@ -70,7 +69,7 @@ export const useEmployeeForm = () => {
       });
     }
 
-   };
+   }; */
 
   const handleBackStatesOnPage = (event) => {
     setEmployee(null);
@@ -162,7 +161,7 @@ const activityValidationSchema = Yup.object().shape({
 
   // Esquema de validação com Yup
 const validationSchema = Yup.object().shape({
- /*  status: Yup.boolean().required('Status é obrigatório'),
+  status: Yup.boolean().required('Status é obrigatório'),
   name: Yup.string()
     .min(3, 'Deve conter mais que 3 caracteres')
     .max(60, 'Deve conter menos que 60 caracteres')
@@ -179,7 +178,7 @@ const validationSchema = Yup.object().shape({
     .required('Por favor insira o Sexo!'),
   birthdate: Yup.date()
     .test('is-adult', 'Você deve ter pelo menos 18 anos', (value) => isAdult(value))
-    .required('Por favor insira a data de nascimento!'), */
+    .required('Por favor insira a data de nascimento!'),
   role: Yup.string()
     .oneOf(
       roles.map((role) => role.value),
@@ -206,7 +205,6 @@ const validationSchema = Yup.object().shape({
 
   return {
     loading,
-    form,
     handleBackStatesOnPage,
     validationSchema,
     onFinish,

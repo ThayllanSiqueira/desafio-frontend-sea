@@ -5,7 +5,7 @@ import {
  Switch,
 } from 'antd';
 import Icon from '@ant-design/icons';
-import { Formik } from 'formik';
+import { Formik, FieldArray, Form as FormikForm, Field } from 'formik';
 
 import SVGArrowLeft from '../SVGArrowLeft';
 import {
@@ -15,6 +15,7 @@ import {
   Title,
   ButtonContainer,
   CustomButton,
+  FormItem,
 } from './EmployeeForm.styles';
 
 
@@ -30,7 +31,6 @@ const EmployeeForm = () => {
 
   const {
     loading,
-    form,
     handleBackStatesOnPage,
     validationSchema,
     onFinish,
@@ -57,35 +57,24 @@ const EmployeeForm = () => {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log('Formik values:', values);
-          onFinish(values); // Mantemos o onFinish para enviar os dados ao sistema
+          onFinish(values);
         }}
       >
-        {({ handleSubmit, handleChange, touched, errors }) => (
-          <Form
-            layout="vertical"
-            form={form}
-            name="dynamic_form_complex"
-            autoComplete="off"
-            onFinish={handleSubmit}
-            // onFinish={onFinish}
+        {({ handleSubmit, getFieldProps }) => (
+          <FormikForm
+          onSubmit={handleSubmit}
           >
             <SectionSwitch>
               <Title>O trabalhador está ativo ou inativo?</Title>
-              <Form.Item
-                name="status"
-                valuePropName="checked"
-                initialValue={true} style={{ marginBottom: 0 }}
-                validateStatus={touched.status && errors.status ? 'error' : ''}
-                help={touched.status && errors.status ? errors.status : ''}
-               >
+
+               <FormItem>
               <Switch
+                name="status"
                 checkedChildren="Ativo"
                 unCheckedChildren="Inativo"
-                onChange={(checked) =>
-                  handleChange({ target: { name: 'status', value: checked } })
-                }
+                {...getFieldProps('status')}
               />
-              </Form.Item>
+              </FormItem>
 
             </SectionSwitch>
             <SectionEmployee />
@@ -93,7 +82,7 @@ const EmployeeForm = () => {
             <ButtonContainer>
               <CustomButton block htmlType="submit">Salvar</CustomButton>
             </ButtonContainer>
-          </Form>
+          </FormikForm>
         )}
       </Formik>
     </FormContainer>
