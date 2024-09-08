@@ -58,7 +58,7 @@ const EmployeeForm = () => {
           onFinish(values);
         }}
       >
-        {({ handleSubmit, getFieldProps }) => (
+        {({ handleSubmit, handleChange }) => (
           <FormikForm
           onSubmit={handleSubmit}
           >
@@ -66,11 +66,12 @@ const EmployeeForm = () => {
               <Title>O trabalhador está ativo ou inativo?</Title>
 
                <FormItem>
-              <Switch
-                name="status"
+               <Switch
                 checkedChildren="Ativo"
                 unCheckedChildren="Inativo"
-                {...getFieldProps('status')}
+                onChange={(checked) =>
+                  handleChange({ target: { name: 'status', value: checked } })
+                }
               />
               </FormItem>
 

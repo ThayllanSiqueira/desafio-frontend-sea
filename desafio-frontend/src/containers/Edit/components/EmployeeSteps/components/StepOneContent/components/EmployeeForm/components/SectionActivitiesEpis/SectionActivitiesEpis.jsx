@@ -85,15 +85,18 @@ const SectionActivitiesEpis = () => {
              <Section key={index}>
 
               <FormItem>
-                <StyledSelect
-                  name={`activitiesEpis[${index}].id`}
-                  placeholder="Selecione a atividade"
-                  {...getFieldProps(`activitiesEpis[${index}].id`)}
-                  options={activities.map(activity => ({
-                    value: activity.id,
-                    label: activity.name,
-                  }))}
-                />
+              <StyledSelect
+                name={`activitiesEpis[${index}].id`}
+                placeholder="Selecione a atividade"
+                value={values.activitiesEpis[index].id}
+                onChange={(value) => setFieldValue(`activitiesEpis[${index}].id`, value)}
+                options={activities.map(activity => ({
+                  value: activity.id,
+                  label: activity.name,
+                }))}
+              />
+
+
                 <ErrorMessage name={`activitiesEpis[${index}].id`} component={ErrorText} />
                 </FormItem>
 
@@ -108,12 +111,15 @@ const SectionActivitiesEpis = () => {
                     <StyledSelect
                       name={`activitiesEpis[${index}].epis[${epiIndex}].id`}
                       placeholder="Selecione o EPI"
-                      {...getFieldProps(`activitiesEpis[${index}].epis[${epiIndex}].id`)}
+                      value={values.activitiesEpis[index].epis[epiIndex].id}
+                      onChange={(value) => setFieldValue(`activitiesEpis[${index}].epis[${epiIndex}].id`, value)}
                       options={epis.map(epi => ({
                         value: epi.id,
                         label: epi.name,
                       }))}
                     />
+
+
                     <ErrorMessage name={`activitiesEpis[${index}].epis[${epiIndex}].id`} component={ErrorText} />
                     </FormItem>
 

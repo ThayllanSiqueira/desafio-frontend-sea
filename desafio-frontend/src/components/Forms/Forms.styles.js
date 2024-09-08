@@ -40,6 +40,24 @@ export const CustomButton = styled(AntdButton)`
   }
 `;
 
+/* export const CustomButton = styled(AntdButton)`
+  color: #FFF;
+  border-color: #649FBF;
+  background: #649FBF;
+  width: 15vw;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &:disabled {
+    color: #FFF;
+    border-color: #959595;
+    background: #959595;
+  }
+`;
+ */
+
 export const FullHeightButton = styled(AntdButton)`
   height: 10vh;
   width: 10vw;
@@ -93,20 +111,4 @@ export const StyledSelect = styled(AntdSelect)`
   }
 `;
 
-/* export const CustomButton = styled(AntdButton)`
-  color: #FFF;
-  border-color: #649FBF;
-  background: #649FBF;
-  width: 15vw;
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
 
-  &:disabled {
-    color: #FFF;
-    border-color: #959595;
-    background: #959595;
-  }
-`;
- */

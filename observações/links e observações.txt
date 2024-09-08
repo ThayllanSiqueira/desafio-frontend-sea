@@ -28,7 +28,9 @@ Gostaríamos de oferecer uma oportunidade para você melhorar esses pontos. Caso
 
 Se você tiver interesse em melhorar o projeto, estamos à disposição para esclarecer dúvidas e fornecer suporte adicional. Acreditamos no seu potencial e esperamos que você aproveite essa oportunidade para crescer ainda mais.
 
-
+# Remoção completa do antd dentro de containers
+# Criação de hooks para lógica dos componentes
+# Fidelidade ao protótipo
 
 
 

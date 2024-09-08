@@ -24,7 +24,7 @@ import { roles } from '../../../../../../../../../../utils/constants/mockCompone
 import { disableFutureDates } from '../../../../../../../../../../utils/functions/validation/validation';
 
 const SectionEmployee = () => {
-  const { getFieldProps } = useFormikContext();
+  const { getFieldProps, setFieldValue } = useFormikContext();
 
   return (
       <Section>
@@ -61,12 +61,12 @@ const SectionEmployee = () => {
             </FormItem>
 
           <FormItem>
-            <StyledDatePicker
+          <StyledDatePicker
               name="birthdate"
               format="DD/MM/YYYY"
               placeholder="DD/MM/YYYY"
               disabledDate={disableFutureDates}
-              {...getFieldProps('birthdate')}
+              onChange={(date) => setFieldValue('birthdate', date)}
             />
             <ErrorMessage name="birthdate" component={ErrorText} />
             </FormItem>
@@ -75,8 +75,8 @@ const SectionEmployee = () => {
             <StyledSelect
               name="role"
               placeholder="Escolha Cargo"
+              onChange={(value) => setFieldValue('role', value)}
               options={roles}
-              {...getFieldProps('birthdate')}
             />
             <ErrorMessage name="role" component={ErrorText} />
             </FormItem>
