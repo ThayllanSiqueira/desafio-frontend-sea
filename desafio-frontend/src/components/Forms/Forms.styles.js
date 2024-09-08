@@ -10,6 +10,8 @@ import {
   Checkbox
 } from 'antd';
 
+const { Option } = Select;
+
 export const FormItem = styled.div`
   margin-bottom: 24px;
 
@@ -116,4 +118,4 @@ export const StyledSelect = styled(Select)`
   }
 `;
 
-export { Switch, Dropdown, Radio, Select, DatePicker, Checkbox }
+export { Switch, Dropdown, Radio, Select, DatePicker, Checkbox, Option }

@@ -1,19 +1,14 @@
-import { useState, useEffect } from 'react';
-
-import Icon, { CloseOutlined, MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { useFormikContext, ErrorMessage  } from 'formik';
 
-import { FormItem, ErrorText, Radio } from '../../../../../../../../../../components/Forms/Forms.styles';
-import { Section, Row, Col } from '../../../../../../../../../../components/Containers/Divs.styles';
 import {
-  RadioGroup,
   StyledSelect,
   StyledDatePicker,
 } from './SectionEmployee.styles';
+import { FormItem, ErrorText, Radio } from '../../../../../../../../../../components/Forms/Forms.styles';
+import { Section, Row, Col } from '../../../../../../../../../../components/Containers/Divs.styles';
 
 import StyledInput from '../../../../../../../../../../components/Forms/Inputs/Input';
 import InputNumber from '../../../../../../../../../../components/Forms/Inputs/InputNumber';
-import InputDate from '../../../../../../../../../../components/Forms/Inputs/InputDate';
 import { roles } from '../../../../../../../../../../utils/constants/mockComponents';
 import { disableFutureDates } from '../../../../../../../../../../utils/functions/validation/validation';
 
@@ -21,14 +16,13 @@ const SectionEmployee = () => {
   const { getFieldProps, setFieldValue } = useFormikContext();
 
   return (
-      <Section>
-        <Row gutter={16}>
+    <Section>
+      <Row gutter={16}>
         <Col span={12}>
-
           <FormItem>
             <StyledInput name="name" placeholder="Nome" {...getFieldProps('name')} />
             <ErrorMessage name="name" component={ErrorText} />
-            </FormItem>
+          </FormItem>
 
           <FormItem>
             <InputNumber name="cpf" mask={"###.###.###-##"}  placeholder="999.999.999-99" {...getFieldProps('cpf')} />
@@ -39,10 +33,8 @@ const SectionEmployee = () => {
             <InputNumber name="rg"  mask={"#########"}  placeholder="RG" {...getFieldProps('rg')} />
             <ErrorMessage name="rg" component={ErrorText} />
           </FormItem>
-
         </Col>
         <Col span={12}>
-
           <FormItem>
             <Radio.Group
               name="sex"
@@ -52,10 +44,10 @@ const SectionEmployee = () => {
               <Radio value="Masculino">Masculino</Radio>
             </Radio.Group>
             <ErrorMessage name="sex" component={ErrorText} />
-            </FormItem>
+          </FormItem>
 
           <FormItem>
-          <StyledDatePicker
+            <StyledDatePicker
               name="birthdate"
               format="DD/MM/YYYY"
               placeholder="DD/MM/YYYY"
@@ -63,7 +55,7 @@ const SectionEmployee = () => {
               onChange={(date) => setFieldValue('birthdate', date)}
             />
             <ErrorMessage name="birthdate" component={ErrorText} />
-            </FormItem>
+          </FormItem>
 
           <FormItem>
             <StyledSelect
@@ -73,11 +65,10 @@ const SectionEmployee = () => {
               options={roles}
             />
             <ErrorMessage name="role" component={ErrorText} />
-            </FormItem>
-
+          </FormItem>
         </Col>
-        </Row>
-      </Section>
+      </Row>
+    </Section>
   );
 };
 

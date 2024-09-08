@@ -1,10 +1,6 @@
-import { useState, useEffect, useMemo } from 'react';
-
 import EmployeeDescription from './components/EmployeeDescription';
 import EmployeeList from './components/EmployeeList';
 import EmployeeForm from './components/EmployeeForm';
-
-import { useEditContext } from '../../../../hooks/useEditEmployeeContext';
 
 import {
  MainContainer,
@@ -12,23 +8,13 @@ import {
  RightComponent,
 } from './StepOneContent.styles';
 
+import { useStepOneContent } from './useStepOneContent';
+
 const StepOneContent = () => {
- const { editData, setEditData } = useEditContext();
- const [isEmployeeFormVisible, setIsEmployeeFormVisible] = useState(false);
-
- const handleChangeStatesOnPage = (event) => {
-  editData.setIsEmployeeFormVisible((prev) => !prev);
-  editData.enableIcons();
-  editData.setIsButtonNextStepDisabled((prev) => !prev);
- };
-
- const contextValue = useMemo(() => ({
-  setIsEmployeeFormVisible,
- }), [setIsEmployeeFormVisible]);
-
- useEffect(() => {
-  setEditData(contextValue);
- }, [contextValue, setEditData]);
+  const {
+    handleChangeStatesOnPage,
+    isEmployeeFormVisible,
+  } = useStepOneContent();
 
  return (
   <MainContainer>
