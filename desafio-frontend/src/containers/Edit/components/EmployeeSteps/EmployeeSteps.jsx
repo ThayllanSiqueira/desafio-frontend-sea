@@ -12,6 +12,7 @@ const EmployeeSteps = () => {
 
   return (
     <StyledSteps
+    labelPlacement="vertical"
     onChange={onChange}
     current={current}
     items={items}

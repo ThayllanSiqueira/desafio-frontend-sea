@@ -4,6 +4,8 @@ import {
 } from 'antd';
 
 export const SelectStyled = styled(Select)`
+  width: 250px;
+  margin-right: 20px;
   .ant-select-selector {
     border-color: #649FBF !important;
   }

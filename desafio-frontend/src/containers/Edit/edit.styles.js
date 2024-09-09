@@ -2,14 +2,16 @@ import styled from 'styled-components';
 import { Header, Content} from '../../components/Containers/Layout.styles'
 
 export const StepsHeader = styled(Header)`
+  max-width: 1254px;
+  max-height: 156px;
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
-  justify-content: center;
+
   background: #FFF;
-  width: 98%;
-  height: 22vh;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  margin: 2% 0 2% 0;
+  border-radius: 20px;
   text-align: center;
   padding: 2%;
   position: relative;
@@ -19,6 +21,16 @@ export const StepsHeader = styled(Header)`
     padding: 1%;
     border-radius: 15px;
   }
+`;
+
+export const SVGContainer = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 `;
 
 export const ContentWrapper = styled.div`

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
+  font-family: 'Ubuntu', sans-serif !important;
   display: flex;
   justify-content: space-between;
   width: 98%;
@@ -16,9 +17,9 @@ export const MainContainer = styled.div`
 export const LeftComponent = styled.div`
   background: #FFF;
   width: 36%;
-  height: 55vh;
+  height: 45vh;
   padding: 2%;
-  border-radius: 30px;
+  border-radius: 20px;
   opacity: 1;
   position: relative;
   z-index: 2;
@@ -34,7 +35,7 @@ export const RightComponent = styled.div`
   width: 60%;
   height: 100%;
   padding: 0;
-  border-radius: 30px;
+  border-radius: 20px;
   opacity: 1;
   position: relative;
   z-index: 2;

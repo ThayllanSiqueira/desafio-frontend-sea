@@ -4,10 +4,15 @@ import {
  StepsHeader,
  ButtonContainer,
  ContentWrapper,
+ SVGContainer,
 } from './edit.styles';
+import { Icon } from '../../components/Icons/Icons.styles';
+import SVGLineDashed from '../../components/SVGs/SVGLineDashed';
 
 import EmployeeSteps from './components/EmployeeSteps';
 import { useEditScreen } from './useEditScreen';
+
+const SVGLineDashedIcon = (props) => <Icon component={SVGLineDashed} {...props} />;
 
 const Edit = () => {
   const {
@@ -49,6 +54,9 @@ const Edit = () => {
   return (
     <Layout>
       <StepsHeader>
+        <SVGContainer>
+          <SVGLineDashedIcon />
+        </SVGContainer>
         <EmployeeSteps />
       </StepsHeader>
       <Content>

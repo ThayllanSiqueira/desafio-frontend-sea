@@ -53,6 +53,7 @@ const SectionActivitiesEpis = () => {
                   <Section key={index}>
                     <FormItem>
                       <StyledSelect
+                        style={{ width: 620 }}
                         label="Selecione a atividade"
                         name={`activitiesEpis[${index}].id`}
                         placeholder="Selecione a atividade"
@@ -88,6 +89,7 @@ const SectionActivitiesEpis = () => {
 
                               <FormItem>
                                 <StyledInput
+                                  style={{ width: 200 }}
                                   label="Informe o número do CA"
                                   name={`activitiesEpis[${index}].epis[${epiIndex}].caNumber`}
                                   placeholder="Número do CA"
@@ -96,11 +98,11 @@ const SectionActivitiesEpis = () => {
                                 <ErrorMessage name={`activitiesEpis[${index}].epis[${epiIndex}].caNumber`} component={ErrorText} />
                               </FormItem>
                                 {epiIndex === 0 ? (
-                                  <CustomButton onClick={() => pushEpi({ id: '', caNumber: '' })}>
+                                  <CustomButton style={{ top: 4 }} onClick={() => pushEpi({ id: '', caNumber: '' })}>
                                     Adicionar EPI
                                   </CustomButton>
                                 ) : (
-                                  <CustomButton onClick={() => removeEpi(epiIndex)}>
+                                  <CustomButton style={{ top: 4 }}  onClick={() => removeEpi(epiIndex)}>
                                     Remover EPI
                                   </CustomButton>
                                 )}
@@ -110,12 +112,13 @@ const SectionActivitiesEpis = () => {
                       )}
                     </FieldArray>
 
-                      {values?.activitiesEpis?.length > 1 && (
-                        <CustomButton onClick={() => remove(index)}>Excluir atividade</CustomButton>
-                      )}
-                      {index === values.activitiesEpis.length - 1 && (
-                        <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })}>Adicionar outra atividade</CustomButton>
-                      )}
+                      {
+                        index === values.activitiesEpis.length - 1 ? (
+                          <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })} block>Adicionar outra atividade</CustomButton>
+                        ) : (
+                          <CustomButton  onClick={() => remove(index)} block>Excluir atividade</CustomButton>
+                        )
+                      }
                   </Section>
                 )
                 )}

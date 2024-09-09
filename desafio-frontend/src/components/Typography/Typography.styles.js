@@ -9,6 +9,7 @@ import {
  export const { Text, Title: TitleAntd } = TypographyAntd;
 
 export const Title = styled.h3`
+  font-family: 'Ubuntu', sans-serif;
   margin: 0;
   color: #555;
 
@@ -18,6 +19,7 @@ export const Title = styled.h3`
 `;
 
 export const StyledTitle = styled(TitleAntd)`
+  font-family: 'Ubuntu', sans-serif;
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1;

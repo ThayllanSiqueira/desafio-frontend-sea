@@ -4,6 +4,7 @@ import { Tag } from '../../../../../../../../components/Containers/Divs.styles';
 import { Dropdown } from '../../../../../../../../components/Forms/Forms.styles';
 
 export const FilterButtons = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   gap: 5%;
 
@@ -14,6 +15,7 @@ export const FilterButtons = styled.div`
 `;
 
 export const FilterContainer = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,6 +27,7 @@ export const FilterContainer = styled.div`
 `;
 
 export const EmployeeCardList = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   background: ${({ status }) => (status === 1 ? '#649FBF33' : '#F2F2F2')};
   border-radius: 10px;
   padding: 0;
@@ -43,6 +46,7 @@ export const EmployeeCardList = styled.div`
 `;
 
 export const EmployeeInfo = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,6 +76,7 @@ export const ResponsiveContainer = styled.div`
 `;
 
 export const StyledMenu = styled(Menu)`
+  font-family: 'Ubuntu', sans-serif;
   z-index: 1050;
   position: absolute;
   top: 100%;
@@ -95,6 +100,7 @@ export const StyledDropdown = styled(Dropdown)`
 `;
 
 export const StyledTag = styled(Tag)`
+  font-family: 'Ubuntu', sans-serif;
   color: #FFF;
   background: #649FBF;
   border-radius: 30px;

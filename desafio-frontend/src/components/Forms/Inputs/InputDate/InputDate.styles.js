@@ -4,12 +4,19 @@ import {
 } from 'antd';
 
 export const StyledDatePicker = styled(DatePicker)`
-  .ant-input {
+  width: 80%;
+
+  .ant-picker {
     border-color: #649FBF !important;
   }
 
-  .ant-input-outlined {
+  .ant-picker-focused {
     border-color: #649FBF !important;
+    box-shadow: 0 0 0 2px rgba(100, 159, 191, 0.2);
+  }
+
+  .ant-picker-input > input {
+    color: #000;
   }
 
   @media (max-width: 768px) {
@@ -19,12 +26,12 @@ export const StyledDatePicker = styled(DatePicker)`
 
 export const Label = styled.label`
   display: block;
-  margin-bottom: 0.5em;
+  margin-bottom: 15px;
+  margin-top: 15px;
   font-weight: bold;
-  /* Adicione aqui seus estilos personalizados para a Label */
 `;
 
 export const InputWrapper = styled.div`
-  /* Adicione aqui estilos para garantir que a label e o input sejam exibidos corretamente */
+
 `;
 

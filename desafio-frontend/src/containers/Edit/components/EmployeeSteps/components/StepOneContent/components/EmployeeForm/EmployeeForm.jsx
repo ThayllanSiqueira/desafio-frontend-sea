@@ -7,7 +7,7 @@ import {
 } from './EmployeeForm.styles';
 
 import SVGArrowLeft from '../../../../../../../../components/SVGs/SVGArrowLeft';
-import { FormItem, CustomButton, Button, Switch } from '../../../../../../../../components/Forms/Forms.styles';
+import { FormItem, CustomButton, Button, StyledSwitch } from '../../../../../../../../components/Forms/Forms.styles';
 import { EmployeeCard } from '../../../../../../../../components/Containers/Cards.styles';
 import { Title } from '../../../../../../../../components/Typography/Typography.styles';
 import { Icon } from '../../../../../../../../components/Icons';
@@ -55,15 +55,14 @@ const EmployeeForm = () => {
             onFinish(values);
           }}
         >
-          {({ handleSubmit, handleChange, values }) => (
+          {({ handleSubmit, handleChange, setFieldValue, values }) => (
             <FormikForm
             onSubmit={handleSubmit}
             >
               <SectionSwitch>
                 <Title>O trabalhador está ativo ou inativo?</Title>
 
-                <FormItem>
-                <Switch
+                <StyledSwitch
                   checked={values.status}
                   checkedChildren="Ativo"
                   unCheckedChildren="Inativo"
@@ -71,7 +70,6 @@ const EmployeeForm = () => {
                     setFieldValue('status', checked)
                   }
                 />
-                </FormItem>
 
               </SectionSwitch>
               <SectionEmployee />

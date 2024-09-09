@@ -4,7 +4,6 @@ https://www.figma.com/proto/gGePjuPTHdH7pISofjrzxB/Desafio-React?type=design&nod
 https://learn.liferay.com/w/dxp/liferay-development/building-applications/developing-a-javascript-application/using-react
 
 - A melhorar
-* Correçao da func alterar employee (Mudar titulo para alterar funcionario)
 * Fidelidade ao protótipo
 * Layout Responsivo (a responsividade não ficou muito boa)
 

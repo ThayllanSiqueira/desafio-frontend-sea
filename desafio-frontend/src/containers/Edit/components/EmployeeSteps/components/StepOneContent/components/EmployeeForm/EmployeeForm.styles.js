@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
+  font-family: 'Ubuntu', sans-serif !important;
   width: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -12,7 +13,7 @@ export const FormContainer = styled.div`
 
 export const SectionSwitch = styled.div`
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 2px;
   border: 1px solid #649FBF;
   border-radius: 10px;
   display: flex;

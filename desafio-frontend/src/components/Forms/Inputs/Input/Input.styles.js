@@ -4,6 +4,7 @@ import {
 } from 'antd';
 
 export const Input = styled(AntdInput)`
+  margin-right: 20px;
  .ant-input {
     border-color: #649FBF !important;
   }

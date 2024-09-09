@@ -13,7 +13,8 @@ import {
 const { Option } = Select;
 
 export const FormItem = styled.div`
-  margin-bottom: 24px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 20px;
 
   .ant-form-item-label {
     padding-bottom: 8px;
@@ -106,6 +107,31 @@ export const StyledUpload = styled(AntdUpload)`
   .ant-btn {
     width: 100%;
   }
+`;
+
+export const StyledSwitch = styled(Switch)`
+
+  &.ant-switch {
+    background-color: #DBDBDB;
+
+    &.ant-switch:hover {
+      background-color: #DBDBDB;
+    }
+
+     .ant-switch-inner {
+      span {
+        color: #000 !important;
+      }
+    }
+  }
+
+  &.ant-switch-checked {
+    background-color: #DBDBDB;
+  }
+
+  .ant-switch-handle::before {
+    background-color: #649FBF;
+
 `;
 
 export { Switch, Dropdown, Radio, Select, DatePicker, Checkbox, Option }
