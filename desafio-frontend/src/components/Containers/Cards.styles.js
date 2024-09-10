@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Card } from 'antd';
 
 export const EmployeeCard = styled(Card)`
+
+
   height: 100%;
   border-radius: 30px;
 
@@ -12,8 +14,11 @@ export const EmployeeCard = styled(Card)`
   }
 
   .ant-card-head-title {
+    font-family: Ubuntu;
     font-size: 28px;
-
+    font-weight: 400;
+    line-height: 32.17px;
+    text-align: left;
     @media (max-width: 768px) {
       font-size: 20px;
     }

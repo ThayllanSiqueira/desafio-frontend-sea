@@ -16,8 +16,8 @@ export const MainContainer = styled.div`
 
 export const LeftComponent = styled.div`
   background: #FFF;
-  width: 36%;
-  height: 45vh;
+  width: 37%;
+  height: 48vh;
   padding: 2%;
   border-radius: 20px;
   opacity: 1;

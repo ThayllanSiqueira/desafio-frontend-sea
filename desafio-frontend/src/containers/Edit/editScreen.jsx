@@ -11,6 +11,7 @@ import SVGLineDashed from '../../components/SVGs/SVGLineDashed';
 
 import EmployeeSteps from './components/EmployeeSteps';
 import { useEditScreen } from './useEditScreen';
+import { styled } from 'styled-components';
 
 const SVGLineDashedIcon = (props) => <Icon component={SVGLineDashed} {...props} />;
 

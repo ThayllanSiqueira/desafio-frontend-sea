@@ -13,7 +13,7 @@ export const StepsHeader = styled(Header)`
   margin: 2% 0 2% 0;
   border-radius: 20px;
   text-align: center;
-  padding: 2%;
+  padding: 2% 0 2% 0;
   position: relative;
   z-index: 1;
   @media (max-width: 768px) {
@@ -25,12 +25,10 @@ export const StepsHeader = styled(Header)`
 
 export const SVGContainer = styled.div`
   position: absolute;
-  top: 20px;
-  right: 30px;
-  width: 100%;
-  height: 100%;
   z-index: -1;
+  top: 20px;
   overflow: hidden;
+  left: 114px;
 `;
 
 export const ContentWrapper = styled.div`
@@ -38,6 +36,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
+  margin-top: 1%;
   @media (max-width: 768px) {
     padding: 0 1rem;
   }
@@ -45,10 +44,12 @@ export const ContentWrapper = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  justify-content: ${({ haspreviousbutton }) => (haspreviousbutton ? 'space-between' : 'flex-end')};
-  width: 100%;
+
+  width: 98%;
   margin-top: auto;
   margin-bottom: 4%;
+  justify-content: ${({ $haspreviousbutton }) => ($haspreviousbutton ? 'space-between' : 'flex-end')};
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-end;

@@ -1,4 +1,4 @@
-import { CustomButton, FullHeightButton, Switch } from '../../../../../../../../components/Forms/Forms.styles';
+import { CustomButton, FullHeightButton, StyledSwitch } from '../../../../../../../../components/Forms/Forms.styles';
 import { EmployeeCard } from '../../../../../../../../components/Containers/Cards.styles';
 import { Flex, List } from '../../../../../../../../components/Containers/Divs.styles';
 import { Text, StyledTitle } from '../../../../../../../../components/Typography/Typography.styles';
@@ -13,7 +13,8 @@ import {
   StyledDropdown,
   StyledMenu,
   StyledTag,
-  AlignedContainer
+  AlignedContainer,
+  StyledTextActivies,
 } from './EmployeeList.styles';
 
 import ModalConfirmation from '../../../../../../../../components/Modals/ModalConfirmation/ModalConfirmation';
@@ -72,7 +73,7 @@ const EmployeeList = ({ onAddEmployee }) => {
         <CustomButton onClick={() => showFilter(true)} >Ver apenas ativos</CustomButton>
         <CustomButton onClick={() => showFilter(false)} disabled={isButtonClearFilterDisabled}>Limpar filtros</CustomButton>
         </FilterButtons>
-        <Text>Ativos {filteredEmployees.filter(employees => employees.status === 1).length}/{(employees || []).length}</Text>
+        <StyledTextActivies>Ativos {filteredEmployees.filter(employees => employees.status === 1).length}/{(employees || []).length}</StyledTextActivies>
       </FilterContainer>
 
       <List
@@ -103,7 +104,7 @@ const EmployeeList = ({ onAddEmployee }) => {
 
       <AlignedContainer>
         <Text>A etapa está concluída? </Text>
-        <Switch checkedChildren="Sim" unCheckedChildren="Não" onChange={isConcluded} />
+        <StyledSwitch checkedChildren="Sim" unCheckedChildren="Não" onChange={isConcluded} />
       </AlignedContainer>
     </EmployeeCard >
   );

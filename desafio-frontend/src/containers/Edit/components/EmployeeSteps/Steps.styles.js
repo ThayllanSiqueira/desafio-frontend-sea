@@ -16,6 +16,8 @@ export const StyledSteps = styled(Steps)`
   }
 
   .ant-steps-item {
+    margin-left: 4px;
+    margin-right: 1px;
     .ant-steps-item-container {
       flex-direction: column;
       z-index: 1;
@@ -41,7 +43,7 @@ export const StyledSteps = styled(Steps)`
           line-height: 10px;
           text-align: center;
           margin-left: 35px;
-          color: #649FBF;
+          color: #000000;
           font-weight: 500;
         }
       }

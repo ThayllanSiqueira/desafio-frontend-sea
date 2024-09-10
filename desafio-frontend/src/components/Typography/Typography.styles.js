@@ -6,7 +6,11 @@ import {
   Switch,
  } from 'antd';
 
- export const { Text, Title: TitleAntd } = TypographyAntd;
+ export const { Text: TextAntd, Title: TitleAntd } = TypographyAntd;
+
+export const Text = styled(TextAntd)`
+  font-family: 'Ubuntu', sans-serif;
+`;
 
 export const Title = styled.h3`
   font-family: 'Ubuntu', sans-serif;

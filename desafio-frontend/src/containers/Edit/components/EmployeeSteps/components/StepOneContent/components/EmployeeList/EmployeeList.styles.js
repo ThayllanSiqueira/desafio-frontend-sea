@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Menu } from '../../../../../../../../components/Containers/Layout.styles';
 import { Tag } from '../../../../../../../../components/Containers/Divs.styles';
 import { Dropdown } from '../../../../../../../../components/Forms/Forms.styles';
+import { Text } from '../../../../../../../../components/Typography/Typography.styles';
 
 export const FilterButtons = styled.div`
   font-family: 'Ubuntu', sans-serif;
@@ -28,7 +29,7 @@ export const FilterContainer = styled.div`
 
 export const EmployeeCardList = styled.div`
   font-family: 'Ubuntu', sans-serif;
-  background: ${({ status }) => (status === 1 ? '#649FBF33' : '#F2F2F2')};
+  background: ${({ $status }) => ($status === 1 ? '#649FBF33' : '#F2F2F2')};
   border-radius: 10px;
   padding: 0;
   display: flex;
@@ -103,7 +104,7 @@ export const StyledTag = styled(Tag)`
   font-family: 'Ubuntu', sans-serif;
   color: #FFF;
   background: #649FBF;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 3px 14px;
   font-size: 1.1em;
 
@@ -113,15 +114,25 @@ export const StyledTag = styled(Tag)`
 `;
 
 export const AlignedContainer = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
   width: 100%;
+  margin-top: 30px;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
   }
+`;
+
+export const StyledTextActivies = styled(Text)`
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.09px;
+  text-align: left;
 `;

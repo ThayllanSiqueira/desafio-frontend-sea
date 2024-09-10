@@ -5,7 +5,7 @@ import { useEditContext } from './hooks/useEditEmployeeContext';
 export const useEditScreen = () => {
   const { editData, setEditData } = useEditContext();
   const [isButtonNextStepDisabled, setIsButtonNextStepDisabled] = useState(true);
-  const [haspreviousbutton, setHaspreviousButton] = useState('false');
+  const [haspreviousbutton, setHaspreviousButton] = useState(false);
 
   const nextStep = () => {
     editData.next();
@@ -20,8 +20,11 @@ export const useEditScreen = () => {
   }), [setIsButtonNextStepDisabled]);
 
   useEffect(() => {
-    if(editData && editData.steps && editData.current > 0){
-      setHaspreviousButton('true');
+    if(editData && editData.current == 0) {
+      setHaspreviousButton(false)
+    }
+    if( editData && editData.current > 0) {
+      setHaspreviousButton(true)
     }
   }, [editData]);
 

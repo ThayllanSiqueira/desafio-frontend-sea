@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Flex, List, Tag, Row, Col  } from 'antd';
+import { Flex, List as ListAntd, Tag, Row, Col  } from 'antd';
 
 export const Section = styled.div`
   margin-bottom: 20px;
@@ -12,4 +12,10 @@ export const Section = styled.div`
   }
 `;
 
-export { Flex, List, Tag, Row, Col  }
+export const List = styled(ListAntd)`
+  .ant-list-item {
+    border: none;
+  }
+`;
+
+export { Flex, Tag, Row, Col  }
