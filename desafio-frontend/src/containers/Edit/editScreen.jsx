@@ -1,10 +1,10 @@
-import { CustomButton } from '../../components/Forms/Forms.styles';
 import { Content, Layout } from '../../components/Containers/Layout.styles';
 import {
  StepsHeader,
  ButtonContainer,
  ContentWrapper,
  SVGContainer,
+ CustomButtonPrevNext
 } from './edit.styles';
 import { Icon } from '../../components/Icons/Icons.styles';
 import SVGLineDashed from '../../components/SVGs/SVGLineDashed';
@@ -34,7 +34,7 @@ const Edit = () => {
 
   const showButtonNext = () => {
     return editData && editData.steps && editData.current < editData.steps.length - 1 ? (
-      <CustomButton onClick={nextStep} disabled={isButtonNextStepDisabled}>Próximo Passo</CustomButton>
+      <CustomButtonPrevNext onClick={nextStep} disabled={isButtonNextStepDisabled}>Próximo Passo</CustomButtonPrevNext>
     ) : (
       <></>
     );
@@ -42,7 +42,7 @@ const Edit = () => {
 
   const showButtonPrevious = () => {
     return editData && editData.steps && editData.current > 0 ? (
-     <CustomButton onClick={previousStep} >Passo Anterior</CustomButton>
+     <CustomButtonPrevNext onClick={previousStep} >Passo Anterior</CustomButtonPrevNext>
     ) : (
      <></>
     );

@@ -1,5 +1,36 @@
 import styled from 'styled-components';
 import { Header, Content} from '../../components/Containers/Layout.styles'
+import { CustomButton } from '../../components/Forms/Forms.styles';
+
+export const CustomButtonPrevNext = styled(CustomButton)`
+  color: #FFF;
+  border-color: #649FBF;
+  background: #649FBF;
+  width: 10vw;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &:disabled {
+    color: #FFF;
+    border-color: #959595;
+    background: #959595;
+  }
+
+  &&.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    color: #FFF;
+    border-color: #649FBF;
+    background: #649FBF;
+    width: 10vw;
+    border-radius: 10px;
+
+  }
+
+
+`;
 
 export const StepsHeader = styled(Header)`
   max-width: 1254px;
