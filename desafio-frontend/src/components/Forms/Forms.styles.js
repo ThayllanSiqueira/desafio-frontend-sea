@@ -5,21 +5,27 @@ import {
   Select,
   Switch,
   Dropdown,
-  Radio,
+  Radio as RadioAntd,
   DatePicker,
-  Checkbox
+  Checkbox as CheckboxAntd
 } from 'antd';
 
 const { Option } = Select;
 
 export const FormItem = styled.div`
-  font-family: 'Ubuntu', sans-serif;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.75px;
+  text-align: left;
   margin-bottom: 20px;
 
   .ant-form-item-label {
     padding-bottom: 8px;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.85);
+    color:  #272F33;
+    ;
+
   }
 
   .ant-form-item-control {
@@ -42,51 +48,50 @@ export const CustomButton = styled(AntdButton)`
   color: #649FBF;
   border-color: #649FBF;
   width: 10vw;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-/* export const CustomButton = styled(AntdButton)`
-  color: #FFF;
-  border-color: #649FBF;
-  background: #649FBF;
-  width: 15vw;
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+  padding: 16px 45px 16px 45px;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.09px;
+  text-align: left;
+  border-radius: 10px;
 
   &:disabled {
-    color: #FFF;
+    color: #959595;
     border-color: #959595;
-    background: #959595;
+    background: #FFFFFF;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
- */
 
 export const FullHeightButton = styled(AntdButton)`
   height: 10vh;
   width: 10vw;
+  border-radius: 0px 10px 10px 0px;
   box-sizing: border-box;
-  clip-path: inset(0 0 0 40%);
-
-  &.ant-btn-icon-only {
-    width: 10vw;
-    background-color: #649FBF;
-    color: #FFF;
-  }
+  color: #FFF;
+  border-color: #649FBF;
+  background-color: #649FBF;
+  clip-path: inset(0 0 0 50%);
 
   &.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
     color: #FFF;
-    border-color: #4096ff;
+    border-color: #649FBF;
     background-color: #649FBF;
   }
 
-  &.ant-btn-icon-only .anticon {
-    font-size: 28px;
-    margin-left: 30px;
+  &::before {
+    content: '...';
+    position: absolute;
+    top: 40%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    letter-spacing: -1px;
+    font-size: 32px;
+    color: #FFF;
   }
 
   @media (max-width: 768px) {
@@ -131,6 +136,46 @@ export const StyledSwitch = styled(Switch)`
 
   .ant-switch-handle::before {
     background-color: #649FBF;
+  }
+
+`;
+
+const Radio = styled(RadioAntd)`
+  border-color: #649FBF;
+
+  &.ant-radio-inner {
+    border-color: #649FBF;
+    width: 18px;
+
+    &:hover {
+      border-color: #4a8bad;
+    }
+  }
+
+`;
+
+const Checkbox = styled(CheckboxAntd)`
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  text-align: left;
+  margin-left: 1%;
+  margin-top: 1%;
+
+  .ant-checkbox-inner {
+    border-color: #649FBF;
+    width: 18px;
+    height: 18px;
+  }
+
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #649FBF;
+    border-color: #649FBF;
+  }
+
+
+
 
 `;
 

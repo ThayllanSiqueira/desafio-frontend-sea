@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Menu } from '../../../../../../../../components/Containers/Layout.styles';
 import { Tag } from '../../../../../../../../components/Containers/Divs.styles';
 import { Dropdown } from '../../../../../../../../components/Forms/Forms.styles';
-import { Text } from '../../../../../../../../components/Typography/Typography.styles';
+import { Text, StyledTitle } from '../../../../../../../../components/Typography/Typography.styles';
+import { CustomButton } from '../../../../../../../../components/Forms/Forms.styles';
 
 export const FilterButtons = styled.div`
   font-family: 'Ubuntu', sans-serif;
@@ -20,6 +21,7 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 6%;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -105,8 +107,11 @@ export const StyledTag = styled(Tag)`
   color: #FFF;
   background: #649FBF;
   border-radius: 20px;
-  padding: 3px 14px;
-  font-size: 1.1em;
+  padding: 4px 16px 4px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.09px;
+  text-align: left;
 
   @media (max-width: 768px) {
     font-size: 1em;
@@ -135,4 +140,30 @@ export const StyledTextActivies = styled(Text)`
   font-weight: 400;
   line-height: 16.09px;
   text-align: left;
+`;
+
+export const CustomButtonAddEmployee = styled(CustomButton)`
+
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.38px;
+  text-align: left;
+
+  padding: 5%;
+  border-radius: 10px;
+
+`;
+
+export const StyledTitleNameEmployee = styled(StyledTitle)`
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  line-height: 27.58px !important;
+  text-align: left !important;
+  color: #707070 !important;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
 `;

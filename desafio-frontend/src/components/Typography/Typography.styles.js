@@ -13,13 +13,14 @@ export const Text = styled(TextAntd)`
 `;
 
 export const Title = styled.h3`
-  font-family: 'Ubuntu', sans-serif;
-  margin: 0;
-  color: #555;
+  margin: 5px;
+  color: #272F33;
 
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 18.75px;
+  text-align: left;
+  font-weight: bold;
 `;
 
 export const StyledTitle = styled(TitleAntd)`

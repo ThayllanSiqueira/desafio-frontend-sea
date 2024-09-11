@@ -3,6 +3,7 @@ import { EmployeeCard } from '../../../../../../../../components/Containers/Card
 import { Flex, List } from '../../../../../../../../components/Containers/Divs.styles';
 import { Text, StyledTitle } from '../../../../../../../../components/Typography/Typography.styles';
 import { EllipsisOutlined } from '../../../../../../../../components/Icons/Icons.styles';
+
 import {
   FilterButtons,
   FilterContainer,
@@ -15,6 +16,8 @@ import {
   StyledTag,
   AlignedContainer,
   StyledTextActivies,
+  CustomButtonAddEmployee,
+  StyledTitleNameEmployee,
 } from './EmployeeList.styles';
 
 import ModalConfirmation from '../../../../../../../../components/Modals/ModalConfirmation/ModalConfirmation';
@@ -58,15 +61,12 @@ const EmployeeList = ({ onAddEmployee }) => {
         marginBottom: '2%',
         }}
       >
-        <CustomButton
+        <CustomButtonAddEmployee
         block
-        style={{
-          padding: '4%',
-        }}
         onClick={onAddEmployee}
         >
         + Adicionar Funcionário
-        </CustomButton>
+        </CustomButtonAddEmployee>
       </Flex>
       <FilterContainer>
         <FilterButtons>
@@ -82,7 +82,7 @@ const EmployeeList = ({ onAddEmployee }) => {
         <List.Item>
           <EmployeeCardList $status={item.status}>
           <EmployeeInfo>
-            <StyledTitle level={3}>{item.name}</StyledTitle>
+            <StyledTitleNameEmployee level={3}>{item.name}</StyledTitleNameEmployee>
             <ResponsiveContainer>
             <StyledTag>{item.cpf}</StyledTag>
             <StyledTag>{item.status === 1 ? 'Ativo' : 'Inativo'}</StyledTag>
@@ -94,7 +94,7 @@ const EmployeeList = ({ onAddEmployee }) => {
               overlay={<StyledMenu items={getMenuItems(item.id)} />}
               trigger={['click']}
               overlayStyle={{ position: 'absolute', zIndex: 1050 }}>
-              <FullHeightButton icon={<EllipsisOutlined />} />
+             <FullHeightButton />
             </StyledDropdown>
           </EmployeeActions>
           </EmployeeCardList>

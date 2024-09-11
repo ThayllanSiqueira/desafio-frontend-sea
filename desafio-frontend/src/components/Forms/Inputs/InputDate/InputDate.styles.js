@@ -4,9 +4,9 @@ import {
 } from 'antd';
 
 export const StyledDatePicker = styled(DatePicker)`
-  width: 80%;
+  width: 100%;
 
-  .ant-picker {
+  &.ant-picker {
     border-color: #649FBF !important;
   }
 

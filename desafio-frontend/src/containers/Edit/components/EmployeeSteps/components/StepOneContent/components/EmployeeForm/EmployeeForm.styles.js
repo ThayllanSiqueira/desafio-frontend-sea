@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  font-family: 'Ubuntu', sans-serif !important;
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 5px;
 
   @media (max-width: 768px) {
     padding: 10px;
@@ -13,12 +12,13 @@ export const FormContainer = styled.div`
 
 export const SectionSwitch = styled.div`
   margin-bottom: 20px;
-  padding: 2px;
+  padding: 5px 10px 5px 10px;
   border: 1px solid #649FBF;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0px 4px 4px 0px #00000026;
 
   @media (max-width: 768px) {
     flex-direction: column;

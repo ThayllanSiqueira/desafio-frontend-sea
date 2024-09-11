@@ -6,7 +6,8 @@ import { log } from '../../logger/presentation';
 export class EmployeePersistency {
   async findAll(): Promise<Employee[]> {
     try {
-      return await db.select('*').from<Employee>('employee').orderBy('nameemployee');
+      return await db.select('*').from<Employee>('employee');
+      // return await db.select('*').from<Employee>('employee').orderBy('nameemployee');
     } catch (error) {
       log.errors.error(`Erro ao buscar employess : ${error}`);
       return [];
