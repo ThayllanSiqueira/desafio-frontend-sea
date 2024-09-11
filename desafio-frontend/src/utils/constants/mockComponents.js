@@ -3,4 +3,4 @@ export const roles = [
   { value: 'cargo2', label: 'Cargo 2' },
   { value: 'cargo3', label: 'Cargo 3' },
   { value: 'cargo4', label: 'Cargo 4' },
-]
+];

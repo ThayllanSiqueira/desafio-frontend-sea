@@ -1,78 +1,88 @@
-import {useState, useEffect} from 'react';
-import {
- Form,
- Button,
- Switch,
-} from 'antd';
-import Icon from '@ant-design/icons';
-import SVGArrowLeft from '../SVGArrowLeft';
+import { Formik, Form as FormikForm } from 'formik';
 
 import {
-  EmployeeCard,
   FormContainer,
   SectionSwitch,
-  Title,
-  ButtonContainer,
-  CustomButton,
+  EmployeeButtonContainer,
 } from './EmployeeForm.styles';
 
-
+import SVGArrowLeft from '../../../../../../../../components/SVGs/SVGArrowLeft';
+import { FormItem, CustomButton, Button, StyledSwitch } from '../../../../../../../../components/Forms/Forms.styles';
+import { EmployeeCard } from '../../../../../../../../components/Containers/Cards.styles';
+import { Title } from '../../../../../../../../components/Typography/Typography.styles';
+import { Icon } from '../../../../../../../../components/Icons';
 import SectionEmployee from './components/SectionEmployee';
 import SectionActivitiesEpis from './components/SectionActivitiesEpis';
-
-import { useInsertEmployee } from '../../../../../../hooks/useInsertEmployee';
+import { useEmployeeForm } from './useEmployeeForm';
 
 const ArrowLeftIcon = (props) => <Icon component={SVGArrowLeft} {...props} />;
 
 const EmployeeForm = () => {
 
   const {
-    loading,
-    form,
     handleBackStatesOnPage,
     onFinish,
-  } = useInsertEmployee();
+    initialValuesFormik,
+    validationSchemaYup,
+    employeeId,
+  } = useEmployeeForm();
 
- return (
-  <EmployeeCard
-   title={
-    <>
-     <Button
-      type="link"
-      icon={<ArrowLeftIcon />}
-      onClick={() => handleBackStatesOnPage()}
-      style={{ marginRight: 8 }}
-     />
-     Adicionar Funcionário
-    </>
-   }
-  >
-    <FormContainer>
-      <Form
-        layout="vertical"
-        form={form}
-        name="dynamic_form_complex"
-        autoComplete="off"
-        onFinish={onFinish}
-        /* initialValues={initialValues}
-        key={JSON.stringify(initialValues)} */
-      >
-        <SectionSwitch>
-          <Title>O trabalhador está ativo ou inativo?</Title>
-          <Form.Item name="status" valuePropName="checked" initialValue={true} style={{ marginBottom: 0 }}>
-          <Switch checkedChildren="Ativo" unCheckedChildren="Inativo" />
-          </Form.Item>
+  const isLoading = Object.keys(initialValuesFormik).length === 0 || (employeeId !== 0 && initialValuesFormik.name === '');
 
-        </SectionSwitch>
-        <SectionEmployee />
-        <SectionActivitiesEpis />
-        <ButtonContainer>
-          <CustomButton block htmlType="submit">Salvar</CustomButton>
-        </ButtonContainer>
-      </Form>
-    </FormContainer>
-  </EmployeeCard >
- );
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <EmployeeCard
+      title={
+        <>
+        <Button
+          type="link"
+          icon={<ArrowLeftIcon />}
+          onClick={() => handleBackStatesOnPage()}
+          style={{ marginRight: 8 }}
+        />
+        {employeeId !== 0 ? 'Alterar Funcionário' : 'Adicionar Funcionário'}
+        </>
+      }
+    >
+      <FormContainer>
+        <Formik
+          initialValues={initialValuesFormik}
+          validationSchema={validationSchemaYup}
+          onSubmit={(values) => {
+            onFinish(values);
+          }}
+        >
+          {({ handleSubmit, handleChange, setFieldValue, values }) => (
+            <FormikForm
+            onSubmit={handleSubmit}
+            >
+              <SectionSwitch>
+                <Title>O trabalhador está ativo ou inativo?</Title>
+
+                <StyledSwitch
+                  checked={values.status}
+                  checkedChildren="Ativo"
+                  unCheckedChildren="Inativo"
+                  onChange={(checked) =>
+                    setFieldValue('status', checked)
+                  }
+                />
+
+              </SectionSwitch>
+              <SectionEmployee />
+              <SectionActivitiesEpis />
+              <EmployeeButtonContainer>
+                <CustomButton block htmlType="submit">Salvar</CustomButton>
+              </EmployeeButtonContainer>
+            </FormikForm>
+          )}
+        </Formik>
+      </FormContainer>
+    </EmployeeCard >
+  );
 };
 
 export default EmployeeForm;

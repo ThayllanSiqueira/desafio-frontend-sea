@@ -1,39 +1,53 @@
 import styled from 'styled-components';
-import { Steps as AntdSteps } from 'antd';
+import { Steps } from '../../../../components/Containers/Layout.styles';
 
-export const StyledSteps = styled(AntdSteps)`
-  .ant-steps {
-    text-align: initial;
-  }
+export const StyledSteps = styled(Steps)`
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
 
-  .ant-steps-item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-
-    .ant-steps-item-tail {
-    }
-
-    .ant-steps-item-icon {
-    }
-
-    .ant-steps-item-content {
-      .ant-steps-item-title {
-        text-align: center;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
+  .ant-steps-item.ant-steps-item-active {
     .ant-steps-item-container {
-      flex-direction: row;
-      align-items: flex-start;
       .ant-steps-item-content {
         .ant-steps-item-title {
-          font-size: 0.8rem;
+          color: #649FBF;
         }
       }
     }
   }
+
+  .ant-steps-item {
+    margin-left: 4px;
+    margin-right: 1px;
+    .ant-steps-item-container {
+      flex-direction: column;
+      z-index: 1;
+
+      .ant-steps-item-tail {
+        &::after {
+          display: none;
+        }
+      }
+
+      .ant-steps-item-content {
+        margin-top: 0;
+        .ant-steps-item-title {
+          font-size: 14px;
+          line-height: 10px;
+          text-align: center;
+          margin-left: 35px;
+          margin-bottom: 10px;
+          color: #649FBF;
+        }
+        .ant-steps-item-description {
+          font-size: 14px;
+          line-height: 10px;
+          text-align: center;
+          margin-left: 35px;
+          color: #000000;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
 `;

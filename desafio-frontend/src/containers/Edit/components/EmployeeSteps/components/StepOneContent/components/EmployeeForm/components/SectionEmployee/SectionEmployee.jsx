@@ -1,66 +1,82 @@
-import { useState, useEffect } from 'react';
-import {
-  Form,
-  Radio,
-  Row,
-  Col,
-  } from 'antd';
-
-import Icon, { CloseOutlined, MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { useFormikContext, ErrorMessage  } from 'formik';
+import moment from 'moment';
 
 import {
-  Section,
-  RadioGroup,
-  // StyledInput,
-  StyledSelect,
-  StyledDatePicker,
+  Label
 } from './SectionEmployee.styles';
+import { FormItem, ErrorText, Radio } from '../../../../../../../../../../components/Forms/Forms.styles';
+import { Section, Row, Col } from '../../../../../../../../../../components/Containers/Divs.styles';
 
-import StyledInput from '../../../../../../../../../../components/Inputs/Input';
-import InputNumber from '../../../../../../../../../../components/Inputs/InputNumber';
-import { validateCPF } from '../../../../../../../../../../utils/functions/validation/validation';
+import StyledInput from '../../../../../../../../../../components/Forms/Inputs/Input';
+import InputNumber from '../../../../../../../../../../components/Forms/Inputs/InputNumber';
+import InputDate from '../../../../../../../../../../components/Forms/Inputs/InputDate';
+import StyledSelect from '../../../../../../../../../../components/Forms/Inputs/Select';
 import { roles } from '../../../../../../../../../../utils/constants/mockComponents';
+import { disableFutureDates } from '../../../../../../../../../../utils/functions/validation/validation';
 
 const SectionEmployee = () => {
+  const { getFieldProps, setFieldValue, values } = useFormikContext();
 
- return (
-     <Section>
+  return (
+    <Section>
       <Row gutter={16}>
-       <Col span={12}>
-        <Form.Item label="Nome" name="name" rules={[{ required: true, message: 'Por favor insira o nome!' }]}>
-         <StyledInput placeholder="Nome" />
-        </Form.Item>
-        <Form.Item label="CPF" name="cpf" rules={[{ required: true, message: 'Por favor insira o CPF!' }, {
-            validator: (_, value) => validateCPF(value) // Use a função de validação
-          }]}>
-         <InputNumber mask={"###.###.###-##"}  placeholder="CPF" />
-        </Form.Item>
-        <Form.Item label="RG" name="rg" rules={[{ required: true, message: 'Por favor insira o RG!' }]}>
-         <InputNumber mask={"###########"}  placeholder="RG" />
-        </Form.Item>
-       </Col>
-       <Col span={12}>
-        <Form.Item label="Sexo" name="sex" rules={[{ required: true, message: 'Por favor selecione o sexo!' }]}>
-         {/* <RadioGroup> */}
-          <Radio.Group>
-            <Radio value="Feminino">Feminino</Radio>
-            <Radio value="Masculino">Masculino</Radio>
-          </Radio.Group>
-         {/* </RadioGroup> */}
-        </Form.Item>
-        <Form.Item label="Data de Nascimento" name="birthdate" rules={[{ required: true, message: 'Por favor insira a data de nascimento!' }]}>
-          <StyledDatePicker />
-        </Form.Item>
-        <Form.Item label="Cargo" name="role" rules={[{ required: true, message: 'Por favor selecione o cargo!' }]}>
-         <StyledSelect
-          placeholder="Cargo"
-          options={roles}
-         />
-        </Form.Item>
-       </Col>
+        <Col span={12}>
+          <FormItem>
+            <StyledInput label="Nome"  name="name" placeholder="Nome" {...getFieldProps('name')} />
+            <ErrorMessage name="name" component={ErrorText} />
+          </FormItem>
+
+          <FormItem>
+            <InputNumber label="CPF" name="cpf" mask={"###.###.###-##"}  placeholder="999.999.999-99" {...getFieldProps('cpf')} />
+            <ErrorMessage name="cpf" component={ErrorText} />
+          </FormItem>
+
+          <FormItem>
+            <InputNumber label="RG" name="rg"  mask={"#########"}  placeholder="RG" {...getFieldProps('rg')} />
+            <ErrorMessage name="rg" component={ErrorText} />
+          </FormItem>
+        </Col>
+        <Col span={12}>
+          <FormItem>
+            <Label> Sexo </Label>
+            <Radio.Group
+              name="sex"
+              {...getFieldProps('sex')}
+            >
+              <Radio value="Feminino">Feminino</Radio>
+              <Radio value="Masculino">Masculino</Radio>
+            </Radio.Group>
+            <ErrorMessage name="sex" component={ErrorText} />
+          </FormItem>
+
+          <FormItem>
+            <InputDate
+              label="Data de Nascimento"
+              format="DD/MM/YYYY"
+              name="birthdate"
+              placeholder="DD/MM/YYYY"
+              disabledDate={disableFutureDates}
+              value={values.birthdate ? moment(values.birthdate) : null}
+              onChange={(date) => setFieldValue('birthdate', date)}
+            />
+            <ErrorMessage name="birthdate" component={ErrorText} />
+          </FormItem>
+
+          <FormItem>
+            <StyledSelect
+              label="Cargo"
+              name="role"
+              value={values.role || undefined}
+              placeholder="Escolha Cargo"
+              onChange={(value) => setFieldValue('role', value)}
+              options={roles}
+            />
+            <ErrorMessage name="role" component={ErrorText} />
+          </FormItem>
+        </Col>
       </Row>
-     </Section>
- );
+    </Section>
+  );
 };
 
 export default SectionEmployee;

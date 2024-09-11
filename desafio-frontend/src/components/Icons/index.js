@@ -5,4 +5,6 @@ import SVGNotification from './NotificationIcon/SVGNotification';
 import SVGTimeLatest from './TimeLatestIcon/SVGTimeLatest';
 import SVGUser from './UserIcon/SVGUser';
 
+export * from './Icons.styles'
+
 export { SVGHome, SVGEdit, SVGDiagram, SVGNotification, SVGTimeLatest, SVGUser };

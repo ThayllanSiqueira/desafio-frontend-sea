@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
 export const CommingSoonDiv = styled.div`
+  max-width: 1254px;
+  max-height: 55px;
   color: #FFF;
   background: #4FA1C1;
   margin-top: 2%;
-  padding: 1.2%;
-  width: 95%;
-  border-radius: 30px;
+  padding: 0.8%;
+  width: 96.5%;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 2em;
   margin-bottom: 40%;
+  font-size: 28px;
+  line-height: 32px;
 
   @media (max-width: 768px) {
     font-size: 1.5em;

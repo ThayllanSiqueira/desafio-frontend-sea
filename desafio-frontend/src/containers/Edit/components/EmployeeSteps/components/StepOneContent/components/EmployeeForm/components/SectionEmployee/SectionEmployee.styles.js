@@ -1,24 +1,4 @@
 import styled from 'styled-components';
-import {
-  Card,
-  Select as AntdSelect,
-  Upload as AntdUpload,
-  Button as AntdButton,
-  DatePicker as AntdDatePicker
-} from 'antd';
-
-import { PaperClipOutlined } from '@ant-design/icons';
-
-export const Section = styled.div`
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #649FBF;
-  border-radius: 10px;
-
-  @media (max-width: 768px) {
-    padding: 15px;
-  }
-`;
 
 export const RadioGroup = styled.div`
   display: flex;
@@ -39,26 +19,8 @@ export const RadioGroup = styled.div`
   }
 `;
 
-export const StyledDatePicker = styled(AntdDatePicker)`
-  .ant-input {
-    border-color: #649FBF !important;
-  }
-
-  .ant-input-outlined {
-    border-color: #649FBF !important;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-export const StyledSelect = styled(AntdSelect)`
-  .ant-select-selector {
-    border-color: #649FBF !important;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
 `;

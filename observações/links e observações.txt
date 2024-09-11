@@ -4,16 +4,23 @@ https://www.figma.com/proto/gGePjuPTHdH7pISofjrzxB/Desafio-React?type=design&nod
 https://learn.liferay.com/w/dxp/liferay-development/building-applications/developing-a-javascript-application/using-react
 
 - A melhorar
-* Revisar arquivos (refactor e clean code)
+* Fidelidade ao protótipo
 * Layout Responsivo (a responsividade não ficou muito boa)
-* Reutilização de componentes (para não depender de UI (antd, MUI, etc...))
-* Criar o frontend como um módulo React dentro do liferay (O projeto deveria ter sido criado com esta intençao)
-* Modal de exclusão (esqueci lembrei depois que entreguei)
 
 
+Olá Thayllan, Bom dia!
+Obrigado por submeter seu desafio. Apreciamos seu esforço e dedicação para completar a tarefa. Gostaríamos de fornecer um feedback construtivo para ajudar você a aprimorar suas habilidades e a alcançar o próximo nível.
+### Avaliação Geral
+Identificamos que o projeto enviado não atendeu aos requisitos mínimos estabelecidos. Aqui estão os principais pontos de atenção:
+1. **Fidelidade ao Protótipo** - A interface desenvolvida não está fiel ao protótipo fornecido. A atenção aos detalhes visuais é essencial em frontend para garantir que o usuário final tenha a experiência desejada. Verifique se os espaçamentos, cores e tipografia estão alinhados com o design original.
+2. **Uso do Redux** - Embora o Redux tenha sido utilizado, ele não foi aplicado de forma adequada. O gerenciamento de estado é crucial para a escalabilidade e manutenção de uma aplicação React. Sugiro revisar a estrutura de actions, reducers e o fluxo de dados para garantir que o estado esteja sendo gerido corretamente.
+3. **Persistência de Dados** - A persistência de dados não foi implementada, o que comprometeu a funcionalidade do cadastro, que era o foco principal do desafio. É importante garantir que as interações do usuário sejam persistidas corretamente no backend, mesmo que seja um json-server. Isso simula um ambiente de produção e é crucial para testes e validação.
+4. **Validação de Formulários** - A validação dos campos não foi implementada de forma adequada, especialmente para campos críticos como CPF e data. A validação é fundamental para garantir a integridade e a segurança dos dados inseridos pelos usuários. Sugiro utilizar bibliotecas como Formik em conjunto com Yup para implementar validações robustas e personalizadas.
+### Próximos Passos
+Gostaríamos de oferecer uma oportunidade para você melhorar esses pontos. Caso tenha interesse, concedemos mais 3 dias para que você possa ajustar o projeto. Aqui estão algumas dicas para ajudá-lo:
+1. **Fidelidade ao Protótipo**: - Use ferramentas como Figma ou Adobe XD para inspecionar o design e garantir que cada detalhe seja replicado corretamente no código.
+2. **Melhoria no Uso do Redux**: - Refaça o fluxo de estado, certificando-se de que todos os dados importantes sejam armazenados no Redux e que as operações de leitura e escrita estejam bem definidas.
+3. **Implementação do json-server**: - Configure o json-server para persistir os dados e simular um backend real. Teste as operações de cadastro, leitura e atualização de dados para garantir que estão funcionando corretamente.
+4. **Validação de Formulários**: - Implemente validações utilizando Formik e Yup. Certifique-se de que os campos críticos, como CPF e data, estejam validados corretamente, e que mensagens de erro claras sejam exibidas ao usuário.
 
-
-
-
-
-
+Se você tiver interesse em melhorar o projeto, estamos à disposição para esclarecer dúvidas e fornecer suporte adicional. Acreditamos no seu potencial e esperamos que você aproveite essa oportunidade para crescer ainda mais.

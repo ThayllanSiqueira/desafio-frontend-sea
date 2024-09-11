@@ -1,195 +1,182 @@
-import { useState, useEffect } from 'react';
-import {
- Form,
- Select,
- Checkbox,
- List,
-} from 'antd';
+import { useFormikContext, FieldArray, ErrorMessage } from 'formik';
 
 import {
-  Section,
-  Title,
-  StyledInput,
-  StyledSelect,
   InlineElements,
-  StyledUpload,
   UploadList,
   FileContainer,
   FileName,
-  FileIcon,
-  CustomButton,
 } from './SectionActivitiesEpis.styles';
+import { FormItem, ErrorText, CustomButton, StyledUpload } from '../../../../../../../../../../components/Forms/Forms.styles';
+import StyledInput  from '../../../../../../../../../../components/Forms/Inputs/Input';
+import StyledSelect  from '../../../../../../../../../../components/Forms/Inputs/Select';
+import { Checkbox, Option }  from '../../../../../../../../../../components/Forms/Forms.styles';
+import { Title } from '../../../../../../../../../../components/Typography/Typography.styles';
+import { Section, List } from '../../../../../../../../../../components/Containers/Divs.styles';
+import { FileIcon } from '../../../../../../../../../../components/Icons';
 
-import { useRequests } from '../../../../../../../../../../hooks/useRequests';
-import { useActivitieReducer } from '../../../../../../../../../../store/reducers/activitieReducer/useActivitieReducer';
-import { useEpiReducer } from '../../../../../../../../../../store/reducers/epiReducer/useEpiReducer';
-import { URL_ACTIVITIES, URL_EPIS } from '../../../../../../../../../../utils/constants/urls';
-import { MethodsEnum } from '../../../../../../../../../../utils/enums/methods.enum';
-
-const { Option } = Select;
+import { useSectionActivitiesEpis } from './useSectionActivitiesEpis';
 
 const SectionActivitiesEpis = () => {
- const [fileList, setFileList] = useState([]);
- const [isEPIVisible, setIsEPIVisible] = useState(true);
- const { request } = useRequests();
- const { activities, setActivities } = useActivitieReducer();
- const { epis, setEpis } = useEpiReducer();
+  const {
+    handleChangeUpload,
+    onChangeShowEPI,
+    fileList,
+    isEPIVisible,
+    activities,
+    epis,
+  } = useSectionActivitiesEpis();
 
- useEffect(() => {
-  request(URL_ACTIVITIES, MethodsEnum.GET, setActivities)
-  request(URL_EPIS, MethodsEnum.GET, setEpis)
-}, []);
+  const { getFieldProps, setFieldValue,  values, errors, touched } = useFormikContext();
 
- const handleChange = (info) => {
-  let newFileList = [...info.fileList];
-  setFileList(newFileList);
- };
+  const isLoading = activities.length === 0 || epis.length === 0;
 
- const onChangeShowEPI = (e) => {
-  setIsEPIVisible(!e.target.checked);
- };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
+  return (
+    <>
+      <Section>
+        <Title>Quais EPIs o trabalhador usa na atividade?</Title>
 
- const handleAddActivity = add => {
-  add({
-   id: '',
-   epis: [
-     {
-      id: '',
-      caNumber: '',
-     },
-    ],
-  });
- };
+        <FormItem>
+          <Checkbox
+            name="noEpi"
+            onChange={onChangeShowEPI}>O trabalhador não usa EPI.</Checkbox>
+        </FormItem>
 
- return (
-     <Section>
-      <Title>Quais EPIs o trabalhador usa na atividade?</Title>
-      <Form.Item name="noEpi" valuePropName="checked">
-       <Checkbox onChange={onChangeShowEPI}>O trabalhador não usa EPI.</Checkbox>
-      </Form.Item>
-      {
-       isEPIVisible && (
-        <>
-         <Form.List name="activitiesEpis">
-          {(fields, { add, remove }) => (
-           <div>
-            {fields.map((field, index) => (
-             <Section key={field.key}>
-              <Form.Item
-               label="Selecione a atividade"
-               name={[field.name, 'id']}
-               rules={[{ required: true, message: 'Por favor selecione a atividade!' }]}
-              >
-               <StyledSelect
-                placeholder="Selecione a atividade"
-                options={activities.map((activitie) => ({
-                  value: `${activitie.id}`,
-                  label: `${activitie.name}`,
-                }))}
-              />
-              </Form.Item>
+        {isEPIVisible && (
+          <>
+            <FieldArray name="activitiesEpis">
+              {({ push, remove }) => (
+                <div>
+                  {values?.activitiesEpis?.map((activity, index) => (
+                    <>
+                      <Section key={index}>
+                        <FormItem>
+                          <StyledSelect
+                            style={{ width: 640 }}
+                            label="Selecione a atividade: "
+                            name={`activitiesEpis[${index}].id`}
+                            placeholder="Selecione a atividade"
+                            value={Number(values.activitiesEpis[index].id) || undefined}
+                            onChange={(value) => setFieldValue(`activitiesEpis[${index}].id`, value)}
+                            options={activities.map(activity => ({
+                              value: activity.id,
+                              label: activity.name,
+                            }))}
+                          />
+                          <ErrorMessage name={`activitiesEpis[${index}].id`} component={ErrorText} />
+                        </FormItem>
 
+                        <FieldArray name={`activitiesEpis[${index}].epis`}>
+                          {({ push: pushEpi, remove: removeEpi }) => (
+                            <div>
+                              {activity.epis.map((epi, epiIndex) => (
+                                <InlineElements key={epiIndex}>
+                                  <FormItem>
+                                    <StyledSelect
+                                      style={{ width: 210 }}
+                                      label="Selecione o EPI:"
+                                      name={`activitiesEpis[${index}].epis[${epiIndex}].id`}
+                                      placeholder="Selecione o EPI"
+                                      value={Number(values.activitiesEpis[index].epis[epiIndex].id) || undefined}
+                                      onChange={(value) => setFieldValue(`activitiesEpis[${index}].epis[${epiIndex}].id`, value)}
+                                      options={epis.map(epi => ({
+                                        value: epi.id,
+                                        label: epi.name,
+                                      }))}
+                                    />
+                                    <ErrorMessage name={`activitiesEpis[${index}].epis[${epiIndex}].id`} component={ErrorText} />
+                                  </FormItem>
 
-               <Form.List name={[field.name, 'epis']}>
-                {(subFields, subOpt) => (
-                 <div>
-                  {subFields.map((subField, subIndex) => (
-                  <InlineElements key={subField.key}>
-                    <Form.Item
-                     label="Selecione o EPI"
-                     name={[subField.name, 'id']}
-                     rules={[{ required: true, message: 'Por favor selecione o EPI!' }]}
-                    >
-                    <StyledSelect
-                      placeholder="Selecione o EPI"
-                      options={epis.map((epi) => ({
-                        value: `${epi.id}`,
-                        label: `${epi.name}`,
-                    }))}
-                    />
+                                  <FormItem>
+                                    <StyledInput
+                                      label="Informe o número do CA:"
+                                      name={`activitiesEpis[${index}].epis[${epiIndex}].caNumber`}
+                                      placeholder="Número do CA"
+                                      {...getFieldProps(`activitiesEpis[${index}].epis[${epiIndex}].caNumber`)}
+                                    />
+                                    <ErrorMessage name={`activitiesEpis[${index}].epis[${epiIndex}].caNumber`} component={ErrorText} />
+                                  </FormItem>
+                                    {epiIndex === 0 ? (
+                                      <CustomButton style={{ top: 4 }} onClick={() => pushEpi({ id: '', caNumber: '' })}>
+                                        Adicionar EPI
+                                      </CustomButton>
+                                    ) : (
+                                      <CustomButton style={{ top: 4 }}  onClick={() => removeEpi(epiIndex)}>
+                                        Remover EPI
+                                      </CustomButton>
+                                    )}
+                                </InlineElements>
+                              ))}
+                            </div>
+                          )}
+                        </FieldArray>
+                        <div  style={{ marginTop: '10px', marginBottom: '10px' }}>
+                        {
+                          index !== values.activitiesEpis.length - 1 && (
+                            <CustomButton  onClick={() => remove(index)} block>Excluir atividade</CustomButton>
+                          )
+                        }
+                      </div>
+                      </Section>
+                      <div  style={{ marginTop: '10px', marginBottom: '10px' }}>
+                        {
+                          index === values.activitiesEpis.length - 1 && (
+                            <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })} block>Adicionar outra atividade</CustomButton>
+                          )
+                        }
+                      </div>
+                    </>
+                  )
+                  )}
 
-                    </Form.Item>
-                    <Form.Item
-                     label="Informe o número do CA"
-                     name={[subField.name, 'caNumber']}
-                     rules={[{ required: true, message: 'Por favor insira o número do CA!' }]}
-                    >
-                     <StyledInput placeholder="Número do CA" />
-                    </Form.Item>
-
-                    {subIndex === 0 ? (
-                     <CustomButton onClick={() => subOpt.add()}>
-                      Adicionar EPI
-                     </CustomButton>
-                    ) : (
-                     <CustomButton onClick={() => subOpt.remove(subField.name)}>
-                      Remover EPI
-                     </CustomButton>
-                    )}
-                   </InlineElements>
-                  ))}
-                 </div>
-                )}
-               </Form.List>
-
-
-              {index >= fields.length - 1 ? (
-               <CustomButton onClick={() => handleAddActivity(add)} block>
-                Adicionar outra atividade
-               </CustomButton>
-              ) : (
-               <CustomButton onClick={() => remove(field.name)} block>
-                Excluir atividade
-               </CustomButton>
+                  {values?.activitiesEpis?.length === 0 && (
+                    <CustomButton onClick={() => push({ id: '', epis: [{ id: '', caNumber: '' }] })}>Adicionar outra atividade</CustomButton>
+                  )}
+                </div>
               )}
-             </Section>
-            ))}
+            </FieldArray>
 
-            {fields.length === 0 && (
-             <CustomButton onClick={() => handleAddActivity(add)} block>
-              Adicionar outra atividade
-             </CustomButton>
-            )}
-           </div>
-          )}
-         </Form.List>
 
-         <Section>
+          </>
+        )}
+      </Section>
+      {isEPIVisible && (
+        <Section>
           <Title>Adicione Atestado de Saúde (opcional):</Title>
           {fileList.length > 0 && (
-           <UploadList>
-            <List
-             dataSource={fileList}
-             renderItem={(file) => (
-              <List.Item>
-               <FileContainer>
-                <FileName>{file.name}</FileName>
-                <FileIcon />
-               </FileContainer>
-              </List.Item>
-             )}
-             bordered
-            />
-           </UploadList>
+            <UploadList>
+              <List
+              dataSource={fileList}
+              renderItem={(file) => (
+                <List.Item>
+                <FileContainer>
+                  <FileName>{file.name}</FileName>
+                  <FileIcon />
+                </FileContainer>
+                </List.Item>
+              )}
+              bordered
+              />
+            </UploadList>
           )}
-          <Form.Item name="annex">
-           <StyledUpload
-            fileList={fileList}
-            onChange={handleChange}
-            showUploadList={false}
-            maxCount={1}
-           >
-            <CustomButton>Selecionar arquivo</CustomButton>
-           </StyledUpload>
-          </Form.Item>
-         </Section>
-        </>
-       )
-      }
 
-     </Section>
- );
+          <FormItem>
+            <StyledUpload
+              fileList={fileList}
+              onChange={handleChangeUpload}
+              showUploadList={false}
+              maxCount={1}
+            >
+              <CustomButton>Selecionar arquivo</CustomButton>
+            </StyledUpload>
+          </FormItem>
+        </Section>
+      )}
+    </>
+  );
 };
 
 export default SectionActivitiesEpis;

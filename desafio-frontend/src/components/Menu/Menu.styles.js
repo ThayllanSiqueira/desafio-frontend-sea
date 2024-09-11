@@ -2,60 +2,71 @@ import styled from 'styled-components';
 import { Menu } from 'antd';
 
 export const ContainerMenu = styled.div`
+  max-height: 768px;
+  max-width: 112px;
   position: relative;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  padding: 0.5%;
   background-color: #4FA1C1;
-  width: 6%;
-  border-radius: 30px;
-  transform: translateX(-40%);
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 98vh;
   justify-content: center;
+  clip-path: inset(0 0 0 30%);
+  transform: translateX(-30%);
   margin: 0;
-  clip-path: inset(0 0 0 40%);
-`;
+  padding: 0;
 
-export const RectangleMenu = styled.div`
-  position: fixed;
-  left: 0;
-  top: 7%;
-  padding: 27%;
-  background-color: #FFF;
-  width: 46%;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 6.5%;
+    left: 0;
+    right: 0;
+    height: 41px;
+    background-color: white;
+  }
 `;
 
 export const StyledMenuAntd = styled(Menu)`
- background: transparent; 
- display: flex;
- border: none;
- flex-direction: column;
- justify-content: center;
+  background: transparent;
+  display: flex;
+  border: none;
+  flex-direction: column;
+  justify-content: center;
 
- .ant-menu-light>.ant-menu.ant-menu-root.ant-menu-vertical {
-  border-inline-end: 0 !important;
- }
-
- .ant-menu-item {
-    margin-bottom: 2vh;
-    margin-left: 1vw;
+  .ant-menu-light > .ant-menu.ant-menu-root.ant-menu-vertical {
+    border-inline-end: 0 !important;
   }
 
-  .ant-menu-light.ant-menu-root.ant-menu-vertical, {
+  .ant-menu-item {
+    margin-bottom: 11%;
+    margin-top: 11%;
+    margin-left: 10%;
+    height: 35px;
+    line-height: 35px;
+    transition: background 0.3s ease;
+
+    .anticon {
+      opacity: 0.8;
+      transition: opacity 0.1s ease;
+    }
+  }
+
+  .ant-menu-light.ant-menu-root.ant-menu-vertical {
     border-inline-end: none !important;
   }
 
-  .ant-menu-item-selected {
-    border-inline-end: none !important;
-    background: linear-gradient(to right, white 0%, white 15px, transparent 5px, transparent 100%) !important;
-  }
-
+  .ant-menu-item-selected,
   .ant-menu-item:hover {
-    background: linear-gradient(to right, white 0%, white 15px, transparent 5px, transparent 100%) !important;
+    border-inline-end: none !important;
+    background: linear-gradient(to right, white 0%, white 20px, transparent 2px, transparent 100%) !important;
+    height: 35px;
+    line-height: 35px;
+
+    .anticon {
+      opacity: 1 !important;
+    }
   }
 
   .ant-menu-item-active .anticon,

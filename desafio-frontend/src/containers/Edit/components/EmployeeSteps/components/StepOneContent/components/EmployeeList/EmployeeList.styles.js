@@ -1,38 +1,12 @@
 import styled from 'styled-components';
-import { Card, Button, Menu, Dropdown, Tag, Typography } from 'antd';
-
-const { Title, Text } = Typography;
-
-export const EmployeeCard = styled(Card)`
-  height: 100%;
-
-  .ant-card-head {
-    background-color: #649FBF;
-    color: #FFF;
-  }
-
-  .ant-card-head-title {
-    font-size: 28px;
-  }
-
-  @media (max-width: 768px) {
-    .ant-card-head-title {
-      font-size: 20px;
-    }
-  }
-`;
-
-export const CustomButton = styled(Button)`
-  color: #649FBF;
-  border-color: #649FBF;
-  width: 10vw;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
+import { Menu } from '../../../../../../../../components/Containers/Layout.styles';
+import { Tag } from '../../../../../../../../components/Containers/Divs.styles';
+import { Dropdown } from '../../../../../../../../components/Forms/Forms.styles';
+import { Text, StyledTitle } from '../../../../../../../../components/Typography/Typography.styles';
+import { CustomButton } from '../../../../../../../../components/Forms/Forms.styles';
 
 export const FilterButtons = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   gap: 5%;
 
@@ -43,9 +17,11 @@ export const FilterButtons = styled.div`
 `;
 
 export const FilterContainer = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 6%;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -54,7 +30,8 @@ export const FilterContainer = styled.div`
 `;
 
 export const EmployeeCardList = styled.div`
-  background: ${({ status }) => (status === 1 ? '#649FBF33' : '#F2F2F2')};
+  font-family: 'Ubuntu', sans-serif;
+  background: ${({ $status }) => ($status === 1 ? '#649FBF33' : '#F2F2F2')};
   border-radius: 10px;
   padding: 0;
   display: flex;
@@ -72,6 +49,7 @@ export const EmployeeCardList = styled.div`
 `;
 
 export const EmployeeInfo = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,36 +78,8 @@ export const ResponsiveContainer = styled.div`
   }
 `;
 
-export const FullHeightButton = styled(Button)`
-  height: 10vh;
-  width: 10vw;
-  box-sizing: border-box;
-  clip-path: inset(0 0 0 40%);
-
-  &.ant-btn-icon-only {
-    width: 10vw;
-    background-color: #649FBF;
-    color: #FFF;
-  }
-
-  &.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
-    color: #FFF;
-    border-color: #4096ff;
-    background-color: #649FBF;
-  }
-
-  &.ant-btn-icon-only .anticon {
-    font-size: 28px;
-    margin-left: 30px;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-  }
-`;
-
 export const StyledMenu = styled(Menu)`
+  font-family: 'Ubuntu', sans-serif;
   z-index: 1050;
   position: absolute;
   top: 100%;
@@ -153,37 +103,67 @@ export const StyledDropdown = styled(Dropdown)`
 `;
 
 export const StyledTag = styled(Tag)`
+  font-family: 'Ubuntu', sans-serif;
   color: #FFF;
   background: #649FBF;
-  border-radius: 30px;
-  padding: 3px 14px;
-  font-size: 1.1em;
+  border-radius: 20px;
+  padding: 4px 16px 4px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.09px;
+  text-align: left;
 
   @media (max-width: 768px) {
     font-size: 1em;
   }
 `;
 
-export const StyledTitle = styled(Title)`
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1;
-
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
-`;
-
 export const AlignedContainer = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
   width: 100%;
+  margin-top: 30px;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
+  }
+`;
+
+export const StyledTextActivies = styled(Text)`
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.09px;
+  text-align: left;
+`;
+
+export const CustomButtonAddEmployee = styled(CustomButton)`
+
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.38px;
+  text-align: left;
+
+  padding: 5%;
+  border-radius: 10px;
+
+`;
+
+export const StyledTitleNameEmployee = styled(StyledTitle)`
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  line-height: 27.58px !important;
+  text-align: left !important;
+  color: #707070 !important;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
   }
 `;
