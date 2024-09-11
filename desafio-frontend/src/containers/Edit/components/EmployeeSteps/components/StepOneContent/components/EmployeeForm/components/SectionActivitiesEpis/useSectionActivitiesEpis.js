@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useFormikContext  } from 'formik';
 
 import { useRequests } from '../../../../../../../../../../hooks/useRequests';
 import { URL_ACTIVITIES, URL_EPIS } from '../../../../../../../../../../utils/constants/urls';
@@ -13,6 +14,8 @@ export const useSectionActivitiesEpis = () =>{
   const { activities, setActivities } = useActivitieReducer();
   const { epis, setEpis } = useEpiReducer();
   const { request } = useRequests();
+
+  const {  setFieldValue } = useFormikContext();
 
   const handleChangeUpload = (info) => {
     let newFileList = [...info.fileList];

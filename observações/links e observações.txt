@@ -4,8 +4,7 @@ https://www.figma.com/proto/gGePjuPTHdH7pISofjrzxB/Desafio-React?type=design&nod
 https://learn.liferay.com/w/dxp/liferay-development/building-applications/developing-a-javascript-application/using-react
 
 - A melhorar
-* Fidelidade ao protótipo
-* Layout Responsivo (a responsividade não ficou muito boa)
+* Layout Responsivo (a responsividade pode melhorar)
 
 
 Olá Thayllan, Bom dia!

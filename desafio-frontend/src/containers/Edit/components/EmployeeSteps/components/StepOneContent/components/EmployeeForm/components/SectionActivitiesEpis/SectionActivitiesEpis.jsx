@@ -52,7 +52,7 @@ const SectionActivitiesEpis = () => {
                 <div>
                   {values?.activitiesEpis?.map((activity, index) => (
                     <>
-                      <Section key={index}>
+                      <Section key={activity.id || index}>
                         <FormItem>
                           <StyledSelect
                             style={{ width: 640 }}
@@ -73,7 +73,7 @@ const SectionActivitiesEpis = () => {
                           {({ push: pushEpi, remove: removeEpi }) => (
                             <div>
                               {activity.epis.map((epi, epiIndex) => (
-                                <InlineElements key={epiIndex}>
+                                <InlineElements key={epi.id || `${index}-${epiIndex}`}>
                                   <FormItem>
                                     <StyledSelect
                                       style={{ width: 210 }}
