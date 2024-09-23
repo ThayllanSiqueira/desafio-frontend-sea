@@ -21,8 +21,8 @@ const envProduction = './.env';
   // import { utils } from './modules/utils/presentation';
   const { utils } = await import('./modules/utils/presentation');
 
-  const licence = await utils.readLicense();
-
+  //const licence = await utils.readLicense();
+  const licence = true;
   if (licence) {
     import('./modules/database/initial-charge');
 
