@@ -77,6 +77,12 @@ export const FullHeightButton = styled(AntdButton)`
   background-color: #649FBF;
   clip-path: inset(0 0 0 50%);
 
+  &.ant-btn-default:not(:disabled):not(.ant-btn-disabled) {
+    color: #FFF;
+    border-color: #649FBF;
+    background-color: #649FBF;
+  }
+
   &.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
     color: #FFF;
     border-color: #649FBF;
